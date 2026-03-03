@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@400;600;700&family=Barlow:wght@400;500;600&display=swap');
+
+:root {
+  --bg-primary: #080d1a;
+  --bg-secondary: #0d1628;
+  --bg-card: #111d35;
+  --bg-card-hover: #162244;
+  --border: #1e3060;
+  --border-bright: #2a4580;
+  --gold: #f0c040;
+  --gold-dim: #b8922e;
+  --blue-bright: #4a9eff;
+  --red: #ff4444;
+  --green: #44ff88;
+  --text-primary: #e8edf5;
+  --text-secondary: #8899bb;
+  --text-dim: #4a5570;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: 'Barlow', sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+h1, h2, h3 {
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 0.05em;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-secondary); }
+::-webkit-scrollbar-thumb { background: var(--border-bright); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--blue-bright); }
+
+/* Animations */
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+@keyframes glow {
+  0%, 100% { box-shadow: 0 0 8px rgba(240,192,64,0.3); }
+  50% { box-shadow: 0 0 24px rgba(240,192,64,0.8); }
+}
+@keyframes bidFlash {
+  0% { background: rgba(74,158,255,0.4); }
+  100% { background: transparent; }
+}
+@keyframes timerWarning {
+  0%, 100% { color: var(--red); }
+  50% { color: #ff8800; }
+}
+@keyframes slideIn {
+  from { transform: translateY(-10px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}

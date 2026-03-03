@@ -1,0 +1,564 @@
+Name,Role,Pool,Matches,Primary (Runs/Wkts),Rate (SR/Econ),Base Price
+Virat Kohli,BAT,Retained,252,8004 Runs,131.9 SR,2.00 Cr
+Rajat Patidar,BAT,Retained,27,799 Runs,158.8 SR,2.00 Cr
+Yash Dayal,BOWL,Retained,28,28 Wkts,9.21 Econ,2.00 Cr
+Jasprit Bumrah,BOWL,Retained,133,165 Wkts,7.30 Econ,2.00 Cr
+Suryakumar Yadav,BAT,Retained,150,3594 Runs,145.3 SR,2.00 Cr
+Hardik Pandya,AR,Retained,137,2525 Runs / 64 Wkts,145.6 SR / 8.85 Econ,2.00 Cr
+Rohit Sharma,BAT,Retained,257,6628 Runs,131.1 SR,2.00 Cr
+Tilak Varma,AR,Retained,38,1156 Runs / 0 Wkts,146.3 SR,2.00 Cr
+Heinrich Klaasen,BAT,Retained,35,992 Runs,168.3 SR,2.00 Cr
+Pat Cummins,AR,Retained,58,512 Runs / 63 Wkts,148.4 SR / 8.52 Econ,2.00 Cr
+Abhishek Sharma,AR,Retained,63,1377 Runs / 9 Wkts,155.2 SR / 8.90 Econ,2.00 Cr
+Travis Head,BAT,Retained,35,891 Runs,175.7 SR,2.00 Cr
+Nitish Kumar Reddy,AR,Retained,15,303 Runs / 3 Wkts,142.9 SR,2.00 Cr
+Ruturaj Gaikwad,BAT,Retained,66,2380 Runs,136.8 SR,2.00 Cr
+Ravindra Jadeja,AR,Retained,240,2959 Runs / 160 Wkts,129.8 SR / 7.60 Econ,2.00 Cr
+M. Pathirana,BOWL,Retained,20,34 Wkts,7.88 Econ,2.00 Cr
+Shivam Dube,AR,Retained,65,1616 Runs / 5 Wkts,142.1 SR / 9.40 Econ,2.00 Cr
+MS Dhoni,WK,Retained,264,5243 Runs,137.5 SR,2.00 Cr
+Axar Patel,AR,Retained,150,1653 Runs / 123 Wkts,130.8 SR / 7.24 Econ,2.00 Cr
+Kuldeep Yadav,BOWL,Retained,84,87 Wkts,8.13 Econ,2.00 Cr
+Tristan Stubbs,BAT,Retained,18,405 Runs,173.8 SR,2.00 Cr
+Abishek Porel,BAT,Retained,18,327 Runs,159.5 SR,2.00 Cr
+Rinku Singh,BAT,Retained,45,893 Runs,143.3 SR,2.00 Cr
+Varun Chakravarthy,AR,Retained,70,83 Wkts,7.45 Econ,2.00 Cr
+Sunil Narine,AR,Retained,176,1534 Runs / 180 Wkts,161.8 SR / 6.73 Econ,2.00 Cr
+Andre Russell,AR,Retained,120,2484 Runs / 115 Wkts,174.9 SR / 9.22 Econ,2.00 Cr
+Harshit Rana,BOWL,Retained,13,19 Wkts,9.08 Econ,2.00 Cr
+Ramandeep Singh,AR,Retained,14,125 Runs,201.6 SR,2.00 Cr
+Sanju Samson,WK,Retained,167,4419 Runs,138.9 SR,2.00 Cr
+Yashasvi Jaiswal,BAT,Retained,52,1607 Runs,150.6 SR,2.00 Cr
+Riyan Parag,AR,Retained,69,1173 Runs / 4 Wkts,135.5 SR,2.00 Cr
+Dhruv Jurel,BAT,Retained,28,347 Runs,136.6 SR,2.00 Cr
+Shimron Hetmyer,BAT,Retained,72,1243 Runs,152.1 SR,2.00 Cr
+Sandeep Sharma,BOWL,Retained,127,137 Wkts,7.91 Econ,2.00 Cr
+Rashid Khan,BOWL,Retained,121,149 Wkts,6.82 Econ,2.00 Cr
+Shubman Gill,BAT,Retained,103,3216 Runs,135.7 SR,2.00 Cr
+Sai Sudharsan,AR,Retained,25,1034 Runs,139.1 SR,2.00 Cr
+Rahul Tewatia,AR,Retained,93,1013 Runs / 32 Wkts,133.1 SR,2.00 Cr
+M Shahrukh Khan,AR,Retained,40,553 Runs,136.2 SR,2.00 Cr
+Nicholas Pooran,WK,Retained,76,1769 Runs,156.6 SR,2.00 Cr
+Ravi Bishnoi,BOWL,Retained,66,63 Wkts,7.82 Econ,2.00 Cr
+Mayank Yadav,BOWL,Retained,4,7 Wkts,6.98 Econ,2.00 Cr
+Mohsin Khan,BOWL,Retained,24,33 Wkts,8.39 Econ,2.00 Cr
+Ayush Badoni,AR,Retained,42,634 Runs / 2 Wkts,134.0 SR,2.00 Cr
+Shashank Singh,AR,Retained,24,453 Runs,164.1 SR,2.00 Cr
+Prabhsimran Singh,BAT,Retained,34,756 Runs,146.2 SR,2.00 Cr
+Jos Buttler,WK,Marquee (M1),107,3582 Runs,147.1 SR,2.00 Cr
+Shreyas Iyer,BAT,Marquee (M1),115,3127 Runs,127.4 SR,2.00 Cr
+Rishabh Pant,WK,Marquee (M1),111,3284 Runs,148.9 SR,2.00 Cr
+Kagiso Rabada,BOWL,Marquee (M1),80,117 Wkts,8.42 Econ,2.00 Cr
+,,,,,,
+Arshdeep Singh,BOWL,Marquee (M1),65,76 Wkts,9.02 Econ,2.00 Cr
+Mitchell Starc,BOWL,Marquee (M2),41,51 Wkts,8.21 Econ,2.00 Cr
+Yuzvendra Chahal,BOWL,Marquee (M2),160,205 Wkts,7.84 Econ,2.00 Cr
+Liam Livingstone,AR,Marquee (M2),39,939 Runs / 11 Wkts,162.4 SR / 9.25 Econ,2.00 Cr
+David Miller,BAT,Marquee (M2),130,2924 Runs,139.2 SR,1.50 Cr
+KL Rahul,WK,Marquee (M2),132,4683 Runs,134.6 SR,2.00 Cr
+Mohammed Shami,BOWL,Marquee (M2),110,127 Wkts,8.44 Econ,2.00 Cr
+Mohammed Siraj,BOWL,Marquee (M2),93,93 Wkts,8.65 Econ,2.00 Cr
+Harry Brook,BAT,Capped Bat (CB1),11,190 Runs,123.3 SR,2.00 Cr
+Devon Conway,WK,Capped Bat (CB1),23,924 Runs,141.2 SR,2.00 Cr
+Venkatesh Iyer,AR,Capped AR (CA1),50,1326 Runs / 5 Wkts,137.1 SR / 10.1 Econ,2.00 Cr
+Glenn Maxwell,AR,Capped AR (CA1),134,2771 Runs / 37 Wkts,156.7 SR / 8.39 Econ,2.00 Cr
+Harshal Patel,AR,Capped AR (CA1),105,135 Wkts / 241 Runs,8.76 Econ / 130 SR,2.00 Cr
+Ishan Kishan,WK,Capped WK (CWK1),105,2644 Runs,135.5 SR,2.00 Cr
+Phil Salt,WK,Capped WK (CWK1),21,567 Runs,175.5 SR,2.00 Cr
+Trent Boult,BOWL,Capped Fast (CFA1),104,121 Wkts,8.29 Econ,2.00 Cr
+Noor Ahmad,BOWL,Capped Spin (CS1),23,24 Wkts,8.05 Econ,2.00 Cr
+Abhinav Manohar,BAT,Uncapped Bat (UB1),19,231 Runs,132.7 SR,0.30 Cr
+Nehal Wadhera,BAT,Uncapped Bat (UB1),20,350 Runs,143.4 SR,0.30 Cr
+Harpreet Brar,AR,Uncapped AR (UA1),41,25 Wkts / 203 Runs,7.91 Econ / 121 SR,0.30 Cr
+,,,,,,
+Mahipal Lomror,AR,Uncapped AR (UA1),40,625 Runs / 1 Wkt,134.4 SR / 8.44 Econ,0.50 Cr
+Sameer Rizvi,AR,Uncapped AR (UA1),8,51 Runs,118.6 SR,0.30 Cr
+Anuj Rawat,WK,Uncapped WK (UK1),24,318 Runs,119.1 SR,0.30 Cr
+Akash Madhwal,BOWL,Uncapped Fast (UFA1),13,19 Wkts,9.39 Econ,0.30 Cr
+Mohit Sharma,BOWL,Uncapped Fast (UFA1),112,132 Wkts,8.52 Econ,0.50 Cr
+Piyush Chawla,BOWL,Uncapped Spin (US1),192,192 Wkts,7.97 Econ,0.50 Cr
+Faf du Plessis,BAT,Capped Bat (CB2),145,4571 Runs,136.3 SR,2.00 Cr
+Sam Curran,AR,Capped AR (CA2),59,883 Runs / 58 Wkts,139.1 SR / 9.53 Econ,2.00 Cr
+Nitish Rana,AR,Capped AR (CA2),107,2636 Runs / 10 Wkts,135.1 SR / 8.35 Econ,1.50 Cr
+Shardul Thakur,AR,Capped AR (CA2),95,291 Runs / 94 Wkts,139.2 SR / 9.22 Econ,2.00 Cr
+Shai Hope,WK,Capped WK (CWK2),9,183 Runs,150.0 SR,1.25 Cr
+Deepak Chahar,BOWL,Capped Fast (CFA2),81,77 Wkts,7.98 Econ,2.00 Cr
+,,,,,,
+Gerald Coetzee,BOWL,Capped Fast (CFA2),10,13 Wkts,10.18 Econ,1.25 Cr
+Akash Deep,BOWL,Capped Fast (CFA3),7,6 Wkts,11.08 Econ,1.00 Cr
+Tushar Deshpande,BOWL,Capped Fast (CFA3),36,42 Wkts,10.13 Econ,1.00 Cr
+Lockie Ferguson,BOWL,Capped Fast (CFA3),45,46 Wkts,8.87 Econ,2.00 Cr
+Bhuvneshwar Kumar,BOWL,Capped Fast (CFA3),176,181 Wkts,7.56 Econ,2.00 Cr
+Mukesh Kumar,BOWL,Capped Fast (CFA3),20,24 Wkts,10.10 Econ,2.00 Cr
+AM Ghazanfar,BOWL,Capped Spin (CS2),0,0 Wkts (Debut),-,0.75 Cr
+Akeal Hosein,BOWL,Capped Spin (CS2),1,0 Wkts,9.00 Econ,1.50 Cr
+Keshav Maharaj,BOWL,Capped Spin (CS2),2,0 Wkts,6.50 Econ,0.75 Cr
+Mujeeb Ur Rahman,BOWL,Capped Spin (CS2),19,19 Wkts,8.18 Econ,2.00 Cr
+Adil Rashid,BOWL,Capped Spin (CS2),3,2 Wkts,8.00 Econ,2.00 Cr
+V. Viyaskanth,BOWL,Capped Spin (CS2),1,1 Wkt,7.00 Econ,0.75 Cr
+Ricky Bhui,WK/BAT,Uncapped Bat (UB2),4,7 Runs,63.6 SR,0.30 Cr
+Swastik Chikara,BAT,Uncapped Bat (UB2),0,0 Runs,-,0.30 Cr
+Aarya Desai,BAT,Uncapped Bat (UB2),0,0 Runs,-,0.30 Cr
+Shubham Dubey,BAT,Uncapped Bat (UB2),3,8 Runs,100.0 SR,0.30 Cr
+Shaik Rasheed,BAT,Uncapped Bat (UB2),0,0 Runs,-,0.30 Cr
+Himmat Singh,BAT,Uncapped Bat (UB2),0,0 Runs,-,0.30 Cr
+Mayank Dagar,AR,Uncapped AR (UA2),8,1 Wkt / 20 Runs,9.38 Econ / 105 SR,0.30 Cr
+Anshul Kamboj,AR,Uncapped AR (UA2),3,2 Wkts,11.50 Econ,0.30 Cr
+Arshad Khan,AR,Uncapped AR (UA2),9,6 Wkts,11.35 Econ,0.30 Cr
+Darshan Nalkande,AR,Uncapped AR (UA2),5,5 Wkts,11.53 Econ,0.30 Cr
+S. Prabhudessai,AR,Uncapped AR (UA2),11,109 Runs,117.2 SR,0.30 Cr
+Anukul Roy,AR,Uncapped AR (UA2),9,2 Wkts / 32 Runs,8.12 Econ / 123 SR,0.30 Cr
+Swapnil Singh,AR,Uncapped AR (UA2),9,6 Wkts,8.83 Econ,0.30 Cr
+Sanvir Singh,AR,Uncapped AR (UA2),2,8 Runs,100.0 SR,0.30 Cr
+Aravelly Avanish,WK/BAT,Uncapped WK (UK2),0,0 Runs,-,0.30 Cr
+Vansh Bedi,WK/BAT,Uncapped WK (UK2),0,0 Runs,-,0.30 Cr
+Saurav Chauhan,WK/BAT,Uncapped WK (UK2),3,9 Runs,56.3 SR,0.30 Cr
+Harvik Desai,WK/BAT,Uncapped WK (UK2),0,0 Runs,-,0.30 Cr
+Kohler-Cadmore,WK/BAT,Uncapped WK (UK2),1,18 Runs,112.5 SR,0.50 Cr
+Kunal Singh Rathore,WK/BAT,Uncapped WK (UK2),0,0 Runs,-,0.30 Cr
+BR Sharath,WK/BAT,Uncapped WK (UK2),0,0 Runs,-,0.30 Cr
+Gurnoor Brar,BOWL,Uncapped Fast (UFA2),1,0 Wkts,14.0 Econ,0.30 Cr
+Mukesh Choudhary,BOWL,Uncapped Fast (UFA2),14,16 Wkts,9.50 Econ,0.30 Cr
+Vidwath Kaverappa,BOWL,Uncapped Fast (UFA2),0,0 Wkts,-,0.30 Cr
+Rajan Kumar,BOWL,Uncapped Fast (UFA2),0,0 Wkts,-,0.30 Cr
+Sushant Mishra,BOWL,Uncapped Fast (UFA2),1,0 Wkts,14.5 Econ,0.30 Cr
+Arjun Tendulkar,BOWL,Uncapped Fast (UFA2),5,3 Wkts,9.37 Econ,0.30 Cr
+Zeeshan Ansari,BOWL,Uncapped Spin (US2),0,0 Wkts,-,0.30 Cr
+Prince Choudhary,BOWL,Uncapped Spin (US2),0,0 Wkts,-,0.30 Cr
+Himanshu Sharma,BOWL,Uncapped Spin (US2),2,0 Wkts,10.15 Econ,0.30 Cr
+M. Siddharth,BOWL,Uncapped Spin (US2),2,1 Wkt,6.50 Econ,0.30 Cr
+Digvesh Singh,BOWL,Uncapped Spin (US2),0,0 Wkts,-,0.30 Cr
+Prashant Solanki,BOWL,Uncapped Spin (US2),2,2 Wkts,6.33 Econ,0.30 Cr
+J. Subramanyan,BOWL,Uncapped Spin (US2),0,0 Wkts,-,0.30 Cr
+Finn Allen,BAT,Capped Bat (CB3),0,0 Runs (Debut),-,2.00 Cr
+,,,,,,
+Dewald Brevis,BAT,Capped Bat (CB3),10,161 Runs,142.48 SR,0.75 Cr
+Ben Duckett,BAT,Capped Bat (CB3),0,0 Runs (Debut),-,2.00 Cr
+Manish Pandey,BAT,Capped Bat (CB3),171,3850 Runs,120.97 SR,0.75 Cr
+Rilee Rossouw,BAT,Capped Bat (CB3),38,930 Runs,144.19 SR,2.00 Cr
+S. Rutherford,BAT,Capped Bat (CB3),16,178 Runs,131.85 SR,1.50 Cr
+Ashton Turner,BAT,Capped Bat (CB3),1,3 Runs,100.00 SR,1.00 Cr
+James Vince,BAT,Capped Bat (CB3),0,0 Runs (Debut),-,2.00 Cr
+Shahbaz Ahmed,AR,Capped AR (CA3),55,530 Runs / 39 Wkts,126.79 SR / 9.15 Econ,1.00 Cr
+Moeen Ali,AR,Capped AR (CA3),67,1162 Runs / 35 Wkts,143.02 SR / 7.12 Econ,2.00 Cr
+Tim David,AR,Capped AR (CA3),38,659 Runs / 0 Wkts,170.28 SR / 11.5 Econ,2.00 Cr
+Deepak Hooda,AR,Capped AR (CA3),122,1858 Runs / 10 Wkts,128.23 SR / 8.52 Econ,0.75 Cr
+Will Jacks,AR,Capped AR (CA3),8,230 Runs / 2 Wkts,175.57 SR / 10.3 Econ,2.00 Cr
+A. Omarzai,AR,Capped AR (CA3),7,42 Runs / 4 Wkts,131.25 SR / 8.66 Econ,1.50 Cr
+R. Sai Kishore,AR,Capped AR (CA3),10,13 Wkts / 27 Runs,8.12 Econ / 103 SR,0.75 Cr
+Romario Shepherd,AR,Capped AR (CA3),13,115 Runs / 10 Wkts,212.96 SR / 10.98 Econ,1.50 Cr
+Tom Banton,WK,Capped WK (CWK3),7,106 Runs,109.28 SR,2.00 Cr
+Sam Billings,WK,Capped WK (CWK3),30,503 Runs,129.64 SR,1.50 Cr
+Jordan Cox,WK,Capped WK (CWK3),0,0 Runs,-,1.25 Cr
+Ben McDermott,WK,Capped WK (CWK3),0,0 Runs,-,0.75 Cr
+Kusal Mendis,WK,Capped WK (CWK3),0,0 Runs,-,0.75 Cr
+Kusal Perera,WK,Capped WK (CWK3),0,0 Runs,-,0.75 Cr
+Josh Philippe,WK,Capped WK (CWK3),0,0 Runs,-,0.75 Cr
+Tim Seifert,WK,Capped WK (CWK3),2,26 Runs,123.81 SR,1.25 Cr
+Nandre Burger,BOWL,Capped Fast (CFA4),6,7 Wkts,9.41 Econ,1.25 Cr
+Spencer Johnson,BOWL,Capped Fast (CFA4),5,4 Wkts,9.20 Econ,2.00 Cr
+Umran Malik,BOWL,Capped Fast (CFA4),26,29 Wkts,9.38 Econ,0.75 Cr
+M. Rahman,BOWL,Capped Fast (CFA4),63,63 Wkts,8.24 Econ,2.00 Cr
+Ishant Sharma,BOWL,Capped Fast (CFA4),110,92 Wkts,8.12 Econ,0.75 Cr
+Nuwan Thushara,BOWL,Capped Fast (CFA4),7,8 Wkts,8.95 Econ,0.75 Cr
+Naveen-ul-Haq,BOWL,Capped Fast (CFA4),16,24 Wkts,8.91 Econ,2.00 Cr
+Jaydev Unadkat,BOWL,Capped Fast (CFA4),105,99 Wkts,8.86 Econ,1.00 Cr
+Umesh Yadav,BOWL,Capped Fast (CFA4),148,144 Wkts,8.43 Econ,2.00 Cr
+Rishad Hossain,BOWL,Capped Spin (CS3),0,0 Wkts,-,0.75 Cr
+Zahir Khan,BOWL,Capped Spin (CS3),0,0 Wkts,-,0.75 Cr
+Nqabayomzi Peter,BOWL,Capped Spin (CS3),0,0 Wkts,-,0.75 Cr
+Tanveer Sangha,BOWL,Capped Spin (CS3),0,0 Wkts,-,0.75 Cr
+Tabraiz Shamsi,BOWL,Capped Spin (CS3),5,3 Wkts,9.05 Econ,2.00 Cr
+J. Vandersay,BOWL,Capped Spin (CS3),0,0 Wkts,-,0.75 Cr
+Sachin Baby,BAT,Uncapped Bat (UB3),19,144 Runs,121.01 SR,0.30 Cr
+Priyam Garg,BAT,Uncapped Bat (UB3),21,251 Runs,115.14 SR,0.30 Cr
+Harnoor Singh,BAT,Uncapped Bat (UB3),0,0 Runs,-,0.30 Cr
+R Smaran,BAT,Uncapped Bat (UB3),0,0 Runs,-,0.30 Cr
+Shashwat Rawat,BAT,Uncapped Bat (UB3),0,0 Runs,-,0.30 Cr
+C Andre Siddarth,BAT,Uncapped Bat (UB3),0,0 Runs,-,0.30 Cr
+Avneesh Sudha,BAT,Uncapped Bat (UB3),0,0 Runs,-,0.30 Cr
+Apoorv Wankhade,BAT,Uncapped Bat (UB3),1,0 Runs,-,0.30 Cr
+Yudhvir Singh,AR,Uncapped AR (UA3),5,4 Wkts / 1 Run,9.28 Econ / 25 SR,0.30 Cr
+Rishi Dhawan,AR,Uncapped AR (UA3),38,210 Runs / 25 Wkts,113.51 SR / 7.99 Econ,0.30 Cr
+R. Hangargekar,AR,Uncapped AR (UA3),2,3 Wkts,10.00 Econ,0.30 Cr
+Tanush Kotian,AR,Uncapped AR (UA3),1,24 Runs / 0 Wkts,77.42 SR / 9.00 Econ,0.30 Cr
+,,,,,,
+Arshin Kulkarni,AR,Uncapped AR (UA3),2,9 Runs / 0 Wkts,64.3 SR / 12.0 Econ,0.30 Cr
+Shams Mulani,AR,Uncapped AR (UA3),1,0 Runs / 1 Wkt,- / 10.0 Econ,0.30 Cr
+Shivam Singh,AR,Uncapped AR (UA3),0,0 Runs / 0 Wkts,-,0.30 Cr
+Lalit Yadav,AR,Uncapped AR (UA3),25,297 Runs / 10 Wkts,108.8 SR / 8.48 Econ,0.30 Cr
+M. Azharuddeen,BAT,Uncapped Bat (UB4),0,0 Runs,-,0.30 Cr
+LR Chethan,BAT,Uncapped Bat (UB4),0,0 Runs,-,0.30 Cr
+Aryaman Singh,BAT,Uncapped Bat (UB4),0,0 Runs,-,0.30 Cr
+Urvil Patel,BAT,Uncapped Bat (UB4),0,0 Runs,-,0.30 Cr
+Sanskar Rawat,BAT,Uncapped Bat (UB4),0,0 Runs,-,0.30 Cr
+Bipin Saurabh,BAT,Uncapped Bat (UB4),0,0 Runs,-,0.30 Cr
+Tanay Thyagarajan,BAT,Uncapped Bat (UB4),0,0 Runs,-,0.30 Cr
+Money Grewal,BOWL,Uncapped Fast (UFA3),0,0 Wkts,-,0.30 Cr
+Ashwani Kumar,BOWL,Uncapped Fast (UFA3),0,0 Wkts,-,0.30 Cr
+Ishan Porel,BOWL,Uncapped Fast (UFA3),1,1 Wkt,10.0 Econ,0.30 Cr
+Abhilash Shetty,BOWL,Uncapped Fast (UFA3),0,0 Wkts,-,0.30 Cr
+Akash Singh,BOWL,Uncapped Fast (UFA3),7,5 Wkts,9.89 Econ,0.30 Cr
+Gurjapneet Singh,BOWL,Uncapped Fast (UFA3),0,0 Wkts,-,0.30 Cr
+Basil Thampi,BOWL,Uncapped Fast (UFA3),25,22 Wkts,9.78 Econ,0.30 Cr
+Murugan Ashwin,BOWL,Uncapped Spin (US3),44,35 Wkts,7.87 Econ,0.30 Cr
+Shreyas Chavan,BOWL,Uncapped Spin (US3),0,0 Wkts,-,0.30 Cr
+Chintal Gandhi,BOWL,Uncapped Spin (US3),0,0 Wkts,-,0.30 Cr
+Raghav Goyal,BOWL,Uncapped Spin (US3),1,0 Wkts,10.0 Econ,0.30 Cr
+J. Suchith,BOWL,Uncapped Spin (US3),22,19 Wkts,7.72 Econ,0.30 Cr
+Roshan Waghsare,BOWL,Uncapped Spin (US3),0,0 Wkts,-,0.30 Cr
+B. Yeswanth,BOWL,Uncapped Spin (US3),0,0 Wkts,-,0.30 Cr
+Sediqullah Atal,BAT,Capped Bat (CB4),0,0 Runs,-,0.75 Cr
+Matthew Breetzke,BAT,Capped Bat (CB4),0,0 Runs,-,0.75 Cr
+Mark Chapman,BAT,Capped Bat (CB4),0,0 Runs,-,1.50 Cr
+Brandon King,BAT,Capped Bat (CB4),0,0 Runs,-,0.75 Cr
+Evin Lewis,BAT,Capped Bat (CB4),27,654 Runs,157.6 SR,2.00 Cr
+Pathum Nissanka,BAT,Capped Bat (CB4),0,0 Runs,-,0.75 Cr
+B. Rajapaksa,BAT,Capped Bat (CB4),12,214 Runs,149.7 SR,0.75 Cr
+Steven Smith,BAT,Capped Bat (CB4),103,2485 Runs,128.1 SR,2.00 Cr
+Gus Atkinson,AR,Capped AR (CA4),0,0 Runs / 0 Wkts,-,2.00 Cr
+Tom Curran,AR,Capped AR (CA4),13,127 Runs / 10 Wkts,120.9 SR / 9.50 Econ,2.00 Cr
+K. Gowtham,AR,Capped AR (CA4),35,247 Runs / 21 Wkts,166.9 SR / 8.26 Econ,1.00 Cr
+Mohammad Nabi,AR,Capped AR (CA4),24,215 Runs / 15 Wkts,143.3 SR / 7.23 Econ,1.50 Cr
+Gulbadin Naib,AR,Capped AR (CA4),3,26 Runs / 1 Wkt,118.2 SR / 11.5 Econ,1.00 Cr
+Sikandar Raza,AR,Capped AR (CA4),9,182 Runs / 3 Wkts,141.1 SR / 9.07 Econ,1.25 Cr
+Mitchell Santner,AR,Capped AR (CA4),18,67 Runs / 15 Wkts,109.8 SR / 7.22 Econ,2.00 Cr
+Jayant Yadav,AR,Capped AR (CA4),20,40 Runs / 8 Wkts,108.1 SR / 6.87 Econ,0.75 Cr
+Johnson Charles,WK/BAT,Capped WK (CWK4),0,0 Runs,-,0.75 Cr
+Litton Das,WK/BAT,Capped WK (CWK4),1,4 Runs,100.0 SR,0.75 Cr
+Andre Fletcher,WK/BAT,Capped WK (CWK4),0,0 Runs,-,0.75 Cr
+Tom Latham,WK/BAT,Capped WK (CWK4),0,0 Runs,-,1.50 Cr
+Ollie Pope,WK/BAT,Capped WK (CWK4),0,0 Runs,-,0.75 Cr
+Kyle Verreynne,WK/BAT,Capped WK (CWK4),0,0 Runs,-,0.75 Cr
+Fazalhaq Farooqi,BOWL,Capped Fast (CFA5),7,4 Wkts,8.96 Econ,2.00 Cr
+Richard Gleeson,BOWL,Capped Fast (CFA5),2,1 Wkt,9.25 Econ,0.75 Cr
+Matt Henry,BOWL,Capped Fast (CFA5),2,1 Wkt,11.0 Econ,2.00 Cr
+,,,,,,
+Alzarri Joseph,BOWL,Capped Fast (CFA5),19,20 Wkts,9.38 Econ,2.00 Cr
+Kwena Maphaka,BOWL,Capped Fast (CFA6),2,1 Wkt,14.0 Econ,0.75 Cr
+Kuldeep Sen,BOWL,Capped Fast (CFA6),12,11 Wkts,10.15 Econ,0.75 Cr
+Reece Topley,BOWL,Capped Fast (CFA6),5,4 Wkts,9.22 Econ,0.75 Cr
+Lizaad Williams,BOWL,Capped Fast (CFA6),3,3 Wkts,10.5 Econ,0.75 Cr
+Luke Wood,BOWL,Capped Fast (CFA6),2,1 Wkt,13.5 Econ,0.75 Cr
+Sachin Dhas,BAT,Uncapped Bat (UB5),0,0 Runs,-,0.30 Cr
+Leus du Plooy,BAT,Uncapped Bat (UB5),0,0 Runs,-,0.50 Cr
+Ashwin Hebbar,BAT,Uncapped Bat (UB5),0,0 Runs,-,0.30 Cr
+R. Kunnummal,BAT,Uncapped Bat (UB5),0,0 Runs,-,0.30 Cr
+Ayush Pandey,BAT,Uncapped Bat (UB5),0,0 Runs,-,0.30 Cr
+A. Raghuwanshi,BAT,Uncapped Bat (UB5),0,0 Runs,-,0.30 Cr
+Shoun Roger,BAT,Uncapped Bat (UB5),0,0 Runs,-,0.40 Cr
+Virat Singh,BAT,Uncapped Bat (UB5),3,15 Runs,57.7 SR,0.30 Cr
+Priyansh Arya,AR,Uncapped AR (UA4),0,0 Runs,-,0.30 Cr
+Manoj Bhandage,AR,Uncapped AR (UA4),0,0 Runs,-,0.30 Cr
+Praveen Dubey,AR,Uncapped AR (UA4),5,1 Wkt / 7 Runs,8.80 Econ,0.30 Cr
+Ajay Mandal,AR,Uncapped AR (UA4),0,0 Runs,-,0.30 Cr
+Prerak Mankad,AR,Uncapped AR (UA4),1,64 Runs,142.2 SR,0.30 Cr
+Vipraj Nigam,AR,Uncapped AR (UA4),0,0 Runs,-,0.30 Cr
+Vicky Ostwal,AR,Uncapped AR (UA4),0,0 Runs,-,0.30 Cr
+Shivalik Sharma,AR,Uncapped AR (UA4),0,0 Runs,-,0.30 Cr
+Salil Arora,WK/BAT,Uncapped WK (UK3),0,0 Runs,-,0.30 Cr
+Dinesh Bana,WK/BAT,Uncapped WK (UK3),0,0 Runs,-,0.30 Cr
+G. Ajitesh,WK/BAT,Uncapped WK (UK3),0,0 Runs,-,0.30 Cr
+N. Jagadeesan,WK/BAT,Uncapped WK (UK3),16,162 Runs,110.2 SR,0.30 Cr
+K. Shrijith,WK/BAT,Uncapped WK (UK3),0,0 Runs,-,0.30 Cr
+Michael Pepper,WK/BAT,Uncapped WK (UK3),0,0 Runs,-,0.50 Cr
+Vishnu Solanki,WK/BAT,Uncapped WK (UK3),0,0 Runs,-,0.30 Cr
+KM Asif,BOWL,Uncapped Fast (UFA4),6,7 Wkts,10.4 Econ,0.30 Cr
+Akhil Chaudhary,BOWL,Uncapped Fast (UFA4),0,0 Wkts,-,0.30 Cr
+H. Chauhan,BOWL,Uncapped Fast (UFA4),0,0 Wkts,-,0.30 Cr
+Arpit Guleria,BOWL,Uncapped Fast (UFA4),0,0 Wkts,-,0.30 Cr
+S. Nishanth,BOWL,Uncapped Fast (UFA4),0,0 Wkts,-,0.30 Cr
+Kuldip Yadav,BOWL,Uncapped Fast (UFA4),3,2 Wkts,11.2 Econ,0.30 Cr
+Prithvi Raj,BOWL,Uncapped Fast (UFA4),1,1 Wkt,14.0 Econ,0.30 Cr
+Shubham Agarwal,BOWL,Uncapped Spin (US4),0,0 Wkts,-,0.30 Cr
+Jasinder Singh,BOWL,Uncapped Spin (US4),0,0 Wkts,-,0.30 Cr
+Jasmer Dhankhar,BOWL,Uncapped Spin (US4),0,0 Wkts,-,0.30 Cr
+Pulkit Narang,BOWL,Uncapped Spin (US4),0,0 Wkts,-,0.30 Cr
+Saumy Pandey,BOWL,Uncapped Spin (US4),0,0 Wkts,-,0.30 Cr
+Mohit Rathee,BOWL,Uncapped Spin (US4),1,0 Wkts,10.0 Econ,0.30 Cr
+Himanshu Singh,BOWL,Uncapped Spin (US4),0,0 Wkts,-,0.30 Cr
+Towhid Hridoy,BAT,Capped Bat (CB5),0,0 Runs,-,0.75 Cr
+Mikyle Louis,BAT,Capped Bat (CB5),0,0 Runs,-,0.75 Cr
+Harry Tector,BAT,Capped Bat (CB5),0,0 Runs,-,0.75 Cr
+R. van der Dussen,BAT,Capped Bat (CB5),3,22 Runs,91.6 SR,2.00 Cr
+Will Young,BAT,Capped Bat (CB5),0,0 Runs,-,1.25 Cr
+Najibullah Zadran,BAT,Capped Bat (CB5),0,0 Runs,-,0.75 Cr
+Ibrahim Zadran,BAT,Capped Bat (CB5),0,0 Runs,-,0.75 Cr
+,,,,,,
+Sean Abbott,AR,Capped AR (CA5),2,0 Runs / 0 Wkts,- / 11.5 Econ,2.00 Cr
+Jacob Bethell,AR,Capped AR (CA5),0,0 Runs / 0 Wkts,Debutant,1.25 Cr
+Brydon Carse,AR,Capped AR (CA5),0,0 Runs / 0 Wkts,Debutant,1.00 Cr
+Aaron Hardie,AR,Capped AR (CA5),0,0 Runs / 0 Wkts,Debutant,1.25 Cr
+Sarfaraz Khan,AR,Capped AR (CA5),50,585 Runs,130.58 SR,0.75 Cr
+Kyle Mayers,AR,Capped AR (CA5),13,379 Runs / 0 Wkts,144.11 SR,1.50 Cr
+Kamindu Mendis,AR,Capped AR (CA5),0,0 Runs / 0 Wkts,Debutant,0.75 Cr
+Matthew Short,AR,Capped AR (CA5),6,117 Runs / 0 Wkts,127.17 SR,0.75 Cr
+Jason Behrendorff,BOWL,Capped Fast (CFA7),17,19 Wkts,8.35 Econ,1.50 Cr
+D. Chameera,BOWL,Capped Fast (CFA7),12,9 Wkts,8.73 Econ,0.75 Cr
+Nathan Ellis,BOWL,Capped Fast (CFA7),15,17 Wkts,8.82 Econ,1.25 Cr
+Shamar Joseph,BOWL,Capped Fast (CFA7),1,0 Wkts,11.75 Econ,0.75 Cr
+Josh Little,BOWL,Capped Fast (CFA7),11,11 Wkts,9.07 Econ,0.75 Cr
+Shivam Mavi,BOWL,Capped Fast (CFA7),32,30 Wkts,8.71 Econ,0.75 Cr
+Jhye Richardson,BOWL,Capped Fast (CFA7),3,3 Wkts,9.38 Econ,1.50 Cr
+Navdeep Saini,BOWL,Capped Fast (CFA7),32,23 Wkts,8.94 Econ,0.75 Cr
+Tanmay Agarwal,BAT,Uncapped Bat (UB6),0,0 Runs,-,0.30 Cr
+Amandeep Khare,BAT,Uncapped Bat (UB6),0,0 Runs,-,0.30 Cr
+Ayush Mhatre,BAT,Uncapped Bat (UB6),0,0 Runs,-,0.30 Cr
+Salman Nizar,BAT,Uncapped Bat (UB6),0,0 Runs,-,0.30 Cr
+Aniket Verma,BAT,Uncapped Bat (UB6),0,0 Runs,-,0.30 Cr
+Sumeet Verma,BAT,Uncapped Bat (UB6),0,0 Runs,-,0.30 Cr
+Manan Vohra,BAT,Uncapped Bat (UB6),56,1083 Runs,130.64 SR,0.30 Cr
+Samarth Vyas,BAT,Uncapped Bat (UB6),0,0 Runs,-,0.30 Cr
+Raj Bawa,AR,Uncapped AR (UA5),2,11 Runs / 0 Wkts,64.71 SR,0.30 Cr
+Emanjot Chahal,AR,Uncapped AR (UA5),0,0 Runs / 0 Wkts,-,0.30 Cr
+Musheer Khan,AR,Uncapped AR (UA5),0,0 Runs / 0 Wkts,-,0.30 Cr
+Manvanth Kumar,AR,Uncapped AR (UA5),0,0 Runs / 0 Wkts,-,0.30 Cr
+Mayank Rawat,AR,Uncapped AR (UA5),0,0 Runs / 0 Wkts,-,0.30 Cr
+Suryansh Shedge,AR,Uncapped AR (UA5),0,0 Runs / 0 Wkts,-,0.30 Cr
+Hrithik Shokeen,AR,Uncapped AR (UA5),13,5 Wkts / 66 Runs,8.25 Econ,0.30 Cr
+Sonu Yadav,AR,Uncapped AR (UA5),0,0 Runs / 0 Wkts,-,0.30 Cr
+Rithik Easwaran,WK/BAT,Uncapped WK (UK4),0,0 Runs,-,0.30 Cr
+Anmol Malhotra,WK/BAT,Uncapped WK (UK4),0,0 Runs,-,0.30 Cr
+Pradosh Paul,WK/BAT,Uncapped WK (UK4),0,0 Runs,-,0.30 Cr
+Karteek Sharma,WK/BAT,Uncapped WK (UK4),0,0 Runs,-,0.30 Cr
+Akash Singh,WK/BAT,Uncapped WK (UK4),0,0 Runs,-,0.30 Cr
+Tejasvi Singh,WK/BAT,Uncapped WK (UK4),0,0 Runs,-,0.30 Cr
+Siddarth Yadav,WK/BAT,Uncapped WK (UK4),0,0 Runs,-,0.30 Cr
+Saurabh Dubey,BOWL,Uncapped Fast (UFA5),0,0 Wkts,-,0.30 Cr
+Aaqib Khan,BOWL,Uncapped Fast (UFA5),0,0 Wkts,-,0.30 Cr
+K. Khejroliya,BOWL,Uncapped Fast (UFA5),5,3 Wkts,10.15 Econ,0.30 Cr
+Ankit Rajpoot,BOWL,Uncapped Fast (UFA5),29,24 Wkts,9.23 Econ,0.30 Cr
+Divesh Sharma,BOWL,Uncapped Fast (UFA5),0,0 Wkts,-,0.30 Cr
+Naman Tiwari,BOWL,Uncapped Fast (UFA5),0,0 Wkts,-,0.30 Cr
+Prince Yadav,BOWL,Uncapped Fast (UFA5),0,0 Wkts,-,0.30 Cr
+Kunal Singh Chibb,BOWL,Uncapped Spin (US5),0,0 Wkts,-,0.30 Cr
+Yuvraj Chudasama,BOWL,Uncapped Spin (US5),0,0 Wkts,-,0.30 Cr
+Deepak Devadiga,BOWL,Uncapped Spin (US5),0,0 Wkts,-,0.30 Cr
+Ramesh Prasad,BOWL,Uncapped Spin (US5),0,0 Wkts,-,0.30 Cr
+,,,,,,
+Shivam Shukla,BOWL,Uncapped Fast (UFA5),0,0 Wkts,-,0.30 Cr
+Himanshu Singh,BOWL,Uncapped Spin (US5),0,0 Wkts,-,0.30 Cr
+Tejpreet Singh,BOWL,Uncapped Fast (UFA5),0,0 Wkts,-,0.30 Cr
+Qais Ahmad,AR,Capped AR (CA6),0,0 Runs / 0 Wkts,-,0.75 Cr
+Charith Asalanka,AR,Capped AR (CA6),0,0 Runs / 0 Wkts,-,0.75 Cr
+Michael Bracewell,AR,Capped AR (CA6),0,0 Runs / 0 Wkts,-,1.50 Cr
+Gudakesh Motie,AR,Capped AR (CA6),0,0 Runs / 0 Wkts,-,0.75 Cr
+Dan Mousley,AR,Capped AR (CA6),0,0 Runs / 0 Wkts,-,0.75 Cr
+Jamie Overton,AR,Capped AR (CA6),0,0 Runs / 0 Wkts,-,1.50 Cr
+Dunith Wellalage,AR,Capped AR (CA6),0,0 Runs / 0 Wkts,-,0.75 Cr
+Ottneil Baartman,BOWL,Capped Fast (CFA8),0,0 Wkts,-,0.75 Cr
+Xavier Bartlett,BOWL,Capped Fast (CFA8),0,0 Wkts,-,0.75 Cr
+D. Madushanka,BOWL,Capped Fast (CFA8),0,0 Wkts,-,0.75 Cr
+Adam Milne,BOWL,Capped Fast (CFA8),10,7 Wkts,9.62 Econ,2.00 Cr
+Lungi Ngidi,BOWL,Capped Fast (CFA8),14,25 Wkts,9.30 Econ,1.00 Cr
+William O'Rourke,BOWL,Capped Fast (CFA8),0,0 Wkts,-,1.50 Cr
+Chetan Sakariya,BOWL,Capped Fast (CFA8),19,20 Wkts,8.41 Econ,0.75 Cr
+Sandeep Warrier,BOWL,Capped Fast (CFA8),6,2 Wkts,7.88 Econ,0.75 Cr
+Musaif Ajaz,BAT,Uncapped Bat (UB7),0,0 Runs,-,0.30 Cr
+Agni Chopra,BAT,Uncapped Bat (UB7),0,0 Runs,-,0.30 Cr
+A. Easwaran,BAT,Uncapped Bat (UB7),0,0 Runs,-,0.30 Cr
+S. Kumar Gharami,BAT,Uncapped Bat (UB7),0,0 Runs,-,0.30 Cr
+Shubham Khajuria,BAT,Uncapped Bat (UB7),0,0 Runs,-,0.30 Cr
+Akhil Rawat,BAT,Uncapped Bat (UB7),0,0 Runs,-,0.30 Cr
+Prateek Yadav,BAT,Uncapped Bat (UB7),0,0 Runs,-,0.30 Cr
+Abdul Basith,AR,Uncapped AR (UA6),1,0 Runs,-,0.30 Cr
+KC Cariappa,AR,Uncapped AR (UA6),11,8 Wkts,9.67 Econ,0.30 Cr
+Yuvraj Chaudhary,AR,Uncapped AR (UA6),0,0 Runs / 0 Wkts,-,0.30 Cr
+Aman Khan,AR,Uncapped AR (UA6),11,110 Runs,108.91 SR,0.30 Cr
+Sumit Kumar,AR,Uncapped AR (UA6),4,2 Runs / 0 Wkts,33.3 SR,0.30 Cr
+K. Nagarkoti,AR,Uncapped AR (UA6),12,5 Wkts,9.50 Econ,0.30 Cr
+Hardik Raj,AR,Uncapped AR (UA6),0,0 Runs / 0 Wkts,-,0.30 Cr
+Harsh Tyagi,AR,Uncapped AR (UA6),0,0 Runs / 0 Wkts,-,0.30 Cr
+M Ajnas,WK/BAT,Uncapped WK (UK5),0,0 Runs,-,0.30 Cr
+Unmukt Chand,WK/BAT,Uncapped WK (UK5),21,300 Runs,100.00 SR,0.30 Cr
+Tejasvi Dahiya,WK/BAT,Uncapped WK (UK5),0,0 Runs,-,0.30 Cr
+S. Ghadigaonkar,WK/BAT,Uncapped WK (UK5),0,0 Runs,-,0.30 Cr
+Baba Indrajith,WK/BAT,Uncapped WK (UK5),3,21 Runs,70.00 SR,0.30 Cr
+M. Adnan Khan,WK/BAT,Uncapped WK (UK5),0,0 Runs,-,0.30 Cr
+Bhagmender Lather,WK/BAT,Uncapped WK (UK5),0,0 Runs,-,0.30 Cr
+Baltej Singh,BOWL,Uncapped Fast (UFA6),0,0 Wkts,-,0.30 Cr
+Ali Khan,BOWL,Uncapped Fast (UFA6),0,0 Wkts,-,0.30 Cr
+Ravi Kumar,BOWL,Uncapped Fast (UFA6),0,0 Wkts,-,0.30 Cr
+Vineet Panwar,BOWL,Uncapped Fast (UFA6),0,0 Wkts,-,0.30 Cr
+Vidyadhar Patil,BOWL,Uncapped Fast (UFA6),0,0 Wkts,-,0.30 Cr
+Aaradhya Shukla,BOWL,Uncapped Fast (UFA6),0,0 Wkts,-,0.30 Cr
+Abhinandan Singh,BOWL,Uncapped Fast (UFA6),0,0 Wkts,-,0.30 Cr
+Cooper Connolly,AR,Capped AR (CA7),0,0 Runs / 0 Wkts,-,0.75 Cr
+Dushan Hemantha,AR,Capped AR (CA7),0,0 Runs / 0 Wkts,-,0.75 Cr
+Jason Holder,AR,Capped AR (CA7),46,259 Runs / 53 Wkts,120.47 SR / 8.81 Econ,2.00 Cr
+,,,,,,
+Karim Janat,AR,Capped AR (CA7),0,0 Runs / 0 Wkts,-,0.75 Cr
+James Neesham,AR,Capped AR (CA7),14,107 Runs / 8 Wkts,113.8 SR / 9.24 Econ,1.50 Cr
+Daniel Sams,AR,Capped AR (CA7),16,44 Runs / 14 Wkts,104.7 SR / 8.72 Econ,1.50 Cr
+Will Sutherland,AR,Capped AR (CA7),0,0 Runs / 0 Wkts,-,0.75 Cr
+Taskin Ahmed,BOWL,Capped Fast (CFA9),0,0 Wkts,-,1.00 Cr
+Ben Dwarshuis,BOWL,Capped Fast (CFA9),1,0 Wkts,12.0 Econ,0.75 Cr
+Obed McCoy,BOWL,Capped Fast (CFA9),11,11 Wkts,9.17 Econ,1.25 Cr
+Riley Meredith,BOWL,Capped Fast (CFA9),13,12 Wkts,9.00 Econ,1.50 Cr
+Lance Morris,BOWL,Capped Fast (CFA9),0,0 Wkts,-,1.25 Cr
+Olly Stone,BOWL,Capped Fast (CFA9),0,0 Wkts,-,0.75 Cr
+Daniel Worrall,BOWL,Capped Fast (CFA9),0,0 Wkts,-,1.50 Cr
+Pyla Avinash,BAT,Uncapped Bat (UB8),0,0 Runs,-,0.30 Cr
+Kiran Chormale,BAT,Uncapped Bat (UB8),0,0 Runs,-,0.30 Cr
+Ashish Dahariya,BAT,Uncapped Bat (UB8),0,0 Runs,-,0.30 Cr
+Tushar Raheja,BAT,Uncapped Bat (UB8),0,0 Runs,-,0.30 Cr
+Sarthak Ranjan,BAT,Uncapped Bat (UB8),0,0 Runs,-,0.30 Cr
+Abhijeet Tomar,BAT,Uncapped Bat (UB8),1,4 Runs,50.0 SR,0.30 Cr
+Krish Bhagat,AR,Uncapped AR (UA7),0,0 Runs / 0 Wkts,-,0.30 Cr
+Sohraab Dhaliwal,AR,Uncapped AR (UA7),0,0 Runs / 0 Wkts,-,0.30 Cr
+Harsh Dubey,AR,Uncapped AR (UA7),0,0 Runs / 0 Wkts,-,0.30 Cr
+Ramakrishna Ghosh,AR,Uncapped AR (UA7),0,0 Runs / 0 Wkts,-,0.30 Cr
+Raj Limbani,AR,Uncapped AR (UA7),0,0 Runs / 0 Wkts,-,0.30 Cr
+Ninad Rathva,AR,Uncapped AR (UA7),0,0 Runs / 0 Wkts,-,0.30 Cr
+Vivrant Sharma,AR,Uncapped AR (UA7),3,69 Runs / 0 Wkts,115.0 SR,0.30 Cr
+Shiva Singh,AR,Uncapped AR (UA7),0,0 Runs / 0 Wkts,-,0.30 Cr
+Sayed Irfan Aftab,BOWL,Uncapped Fast (UFA7),0,0 Wkts,-,0.30 Cr
+Anirudh Chowdhary,BOWL,Uncapped Fast (UFA7),0,0 Wkts,-,0.30 Cr
+Siddarth Kaul,BOWL,Uncapped Fast (UFA7),55,58 Wkts,8.63 Econ,0.40 Cr
+Prashant Painkra,BOWL,Uncapped Fast (UFA7),0,0 Wkts,-,0.30 Cr
+S. Raju,BOWL,Uncapped Fast (UFA7),0,0 Wkts,-,0.30 Cr
+Yeddala Reddy,BOWL,Uncapped Fast (UFA7),0,0 Wkts,-,0.30 Cr
+Zakary Foulkes,AR,Capped AR (CA8),0,0 Runs / 0 Wkts,-,0.75 Cr
+Chris Green,AR,Capped AR (CA8),1,2 Runs / 0 Wkts,100.0 SR,1.00 Cr
+Shakib Al Hasan,AR,Capped AR (CA8),71,793 Runs / 63 Wkts,122.4 SR / 7.44 Econ,1.00 Cr
+Mehidy Hasan Miraz,AR,Capped AR (CA8),0,0 Runs / 0 Wkts,-,1.00 Cr
+Wiaan Mulder,AR,Capped AR (CA8),0,0 Runs / 0 Wkts,-,0.75 Cr
+Dwaine Pretorius,AR,Capped AR (CA8),7,44 Runs / 6 Wkts,157.1 SR / 9.45 Econ,0.75 Cr
+Dasun Shanaka,AR,Capped AR (CA8),3,20 Runs / 0 Wkts,100.0 SR,0.75 Cr
+Shoriful Islam,BOWL,Capped Fast (CFA10),0,0 Wkts,-,0.75 Cr
+B. Muzarabani,BOWL,Capped Fast (CFA10),0,0 Wkts,-,0.75 Cr
+Matthew Potts,BOWL,Capped Fast (CFA10),0,0 Wkts,-,1.50 Cr
+Tanzim Hasan Sakib,BOWL,Capped Fast (CFA10),0,0 Wkts,-,0.75 Cr
+Ben Sears,BOWL,Capped Fast (CFA10),0,0 Wkts,-,1.00 Cr
+Tim Southee,BOWL,Capped Fast (CFA10),54,47 Wkts,8.67 Econ,1.50 Cr
+John Turner,BOWL,Capped Fast (CFA10),0,0 Wkts,-,1.50 Cr
+Joshua Brown,BAT,Uncapped Bat (UB9),0,0 Runs,-,0.30 Cr
+Oliver Davies,BAT,Uncapped Bat (UB9),0,0 Runs,-,0.30 Cr
+Bevon Jacobs,BAT,Uncapped Bat (UB9),0,0 Runs,-,0.30 Cr
+Atharva Kale,BAT,Uncapped Bat (UB9),0,0 Runs,-,0.30 Cr
+Abhishek Nair,BAT,Uncapped Bat (UB9),0,0 Runs,-,0.30 Cr
+Name,Role,Pool,Matches,Primary (Runs/Wkts),Rate (SR/Econ),Base Price
+Vishwanath Singh,BAT,Uncapped Bat (UB9),0,0 Runs,-,0.30 Cr
+Lone Nasir,AR,Uncapped AR (UA8),0,0 Runs / 0 Wkts,-,0.30 Cr
+B. McMullen,AR,Uncapped AR (UA8),0,0 Runs / 0 Wkts,-,0.30 Cr
+Sudhesan Midhun,AR,Uncapped AR (UA8),1,0 Wkts,13.0 Econ,0.30 Cr
+Abid Mushtaq,AR,Uncapped AR (UA8),0,0 Runs / 0 Wkts,-,0.30 Cr
+Mahesh Pithiya,AR,Uncapped AR (UA8),0,0 Runs / 0 Wkts,-,0.30 Cr
+Maramreddy Reddy,AR,Uncapped AR (UA8),0,0 Runs / 0 Wkts,-,0.30 Cr
+Atit Sheth,AR,Uncapped AR (UA8),0,0 Runs / 0 Wkts,-,0.30 Cr
+Jonty Sidhu,AR,Uncapped AR (UA8),0,0 Runs / 0 Wkts,-,0.30 Cr
+Mohit Avasthi,BOWL,Uncapped Fast (UFA8),0,0 Wkts,-,0.30 Cr
+F. Dawoodzai,BOWL,Uncapped Fast (UFA8),0,0 Wkts,-,0.30 Cr
+Praful Hinge,BOWL,Uncapped Fast (UFA8),0,0 Wkts,-,0.30 Cr
+Pankaj Jaswal,BOWL,Uncapped Fast (UFA8),0,0 Wkts,-,0.30 Cr
+Vijay Kumar,BOWL,Uncapped Fast (UFA8),0,0 Wkts,-,0.30 Cr
+Ashok Sharma,BOWL,Uncapped Fast (UFA8),1,0 Wkts,13.3 Econ,0.30 Cr
+Mujtaba Yousuf,BOWL,Uncapped Fast (UFA8),0,0 Wkts,-,0.30 Cr
+Ashton Agar,AR,Capped AR (CA9),0,0 Runs / 0 Wkts,-,1.25 Cr
+Roston Chase,AR,Capped AR (CA9),0,0 Runs / 0 Wkts,-,0.75 Cr
+Junior Dala,AR,Capped AR (CA9),1,2 Wkts,14.3 Econ,0.75 Cr
+Mahedi Hasan,AR,Capped AR (CA9),0,0 Runs / 0 Wkts,-,0.75 Cr
+N. Kharote,AR,Capped AR (CA9),0,0 Runs / 0 Wkts,-,0.75 Cr
+Dan Lawrence,AR,Capped AR (CA9),0,0 Runs / 0 Wkts,-,1.00 Cr
+Nathan Smith,AR,Capped AR (CA9),0,0 Runs / 0 Wkts,-,1.00 Cr
+James Anderson,BOWL,Capped Fast (CFA11),0,0 Wkts (Debut),-,1.25 Cr
+Kyle Jamieson,BOWL,Capped Fast (CFA11),9,9 Wkts,9.61 Econ,1.50 Cr
+Chris Jordan,BOWL,Capped Fast (CFA11),34,31 Wkts,9.55 Econ,2.00 Cr
+Hasan Mahmud,BOWL,Capped Fast (CFA11),0,0 Wkts,-,0.75 Cr
+Tymal Mills,BOWL,Capped Fast (CFA11),10,11 Wkts,9.53 Econ,2.00 Cr
+David Payne,BOWL,Capped Fast (CFA11),0,0 Wkts,-,1.00 Cr
+Nahid Rana,BOWL,Capped Fast (CFA11),0,0 Wkts,-,0.75 Cr
+P. Ray Barman,BAT,Uncapped Bat (UB10),1,0 Runs,-,0.30 Cr
+Jafar Jamal,BAT,Uncapped Bat (UB10),0,0 Runs,-,0.30 Cr
+Ayaz Khan,BAT,Uncapped Bat (UB10),0,0 Runs,-,0.30 Cr
+Kaushik Maity,BAT,Uncapped Bat (UB10),0,0 Runs,-,0.30 Cr
+Rituraj Sharma,BAT,Uncapped Bat (UB10),0,0 Runs,-,0.30 Cr
+V. Suryavanshi,BAT,Uncapped Bat (UB10),0,0 Runs,-,0.30 Cr
+Kartik Chadha,AR,Uncapped AR (UA9),0,0 Runs / 0 Wkts,-,0.30 Cr
+W. Chatterjee,AR,Uncapped AR (UA9),0,0 Runs / 0 Wkts,-,0.30 Cr
+Prerit Dutta,AR,Uncapped AR (UA9),0,0 Runs / 0 Wkts,-,0.30 Cr
+Rajneesh Gurbani,AR,Uncapped AR (UA9),0,0 Runs / 0 Wkts,-,0.30 Cr
+Shubhang Hegde,AR,Uncapped AR (UA9),0,0 Runs / 0 Wkts,-,0.30 Cr
+Saransh Jain,AR,Uncapped AR (UA9),0,0 Runs / 0 Wkts,-,0.30 Cr
+Ripal Patel,AR,Uncapped AR (UA9),12,100 Runs,136.9 SR,0.30 Cr
+Akash Vasisht,AR,Uncapped AR (UA9),0,0 Runs / 0 Wkts,-,0.30 Cr
+Anirudh Kanwar,BOWL,Uncapped Fast (UFA9),0,0 Wkts,-,0.30 Cr
+Shubham Kapse,BOWL,Uncapped Fast (UFA9),0,0 Wkts,-,0.30 Cr
+Atif Mushtaq,BOWL,Uncapped Fast (UFA9),0,0 Wkts,-,0.30 Cr
+Dipesh Parwani,BOWL,Uncapped Fast (UFA9),0,0 Wkts,-,0.30 Cr
+Manish Reddy,BOWL,Uncapped Fast (UFA9),0,0 Wkts,-,0.30 Cr
+Chetan Sharma,BOWL,Uncapped Fast (UFA9),0,0 Wkts,-,0.30 Cr
+,,,,,,
+Avinash Singh,BOWL,Uncapped Fast (UFA9),0,0 Wkts,-,0.30 Cr
+Alick Athanaze,AR,Capped AR (CA10),0,0 Runs / 0 Wkts,-,0.75 Cr
+H. Cartwright,AR,Capped AR (CA10),0,0 Runs / 0 Wkts,-,0.75 Cr
+Dominic Drakes,AR,Capped AR (CA10),0,0 Runs / 0 Wkts,-,1.25 Cr
+Daryn Dupavillon,BOWL,Capped Fast (CFA12),0,0 Wkts,-,0.75 Cr
+Matthew Forde,AR,Capped AR (CA10),0,0 Runs / 0 Wkts,-,1.25 Cr
+Patrick Kruger,AR,Capped AR (CA10),0,0 Runs / 0 Wkts,-,0.75 Cr
+Lahiru Kumara,BOWL,Capped Fast (CFA12),0,0 Wkts,-,0.75 Cr
+Michael Neser,AR,Capped AR (CA10),0,0 Runs / 0 Wkts,-,0.75 Cr
+Richard Ngarava,BOWL,Capped Fast (CFA12),0,0 Wkts,-,0.75 Cr
+Wayne Parnell,BOWL,Capped Fast (CFA12),26,26 Wkts,8.22 Econ,1.00 Cr
+Keemo Paul,AR,Capped AR (CA10),8,18 Runs / 9 Wkts,12.4 Econ,1.25 Cr
+Odean Smith,AR,Capped AR (CA10),6,51 Runs / 6 Wkts,11.5 Econ,0.75 Cr
+Andrew Tye,BOWL,Capped Fast (CFA12),30,42 Wkts,8.59 Econ,0.75 Cr
+Ajay Ahlawat,AR,Uncapped AR (UA10),0,0 Runs / 0 Wkts,-,0.40 Cr
+Corbin Bosch,AR,Uncapped AR (UA10),0,0 Runs / 0 Wkts,-,0.30 Cr
+Mayank Gusain,AR,Uncapped AR (UA10),0,0 Runs / 0 Wkts,-,0.30 Cr
+Mukhtar Hussain,AR,Uncapped AR (UA10),0,0 Runs / 0 Wkts,-,0.30 Cr
+Girinath Reddy,AR,Uncapped AR (UA10),0,0 Runs / 0 Wkts,-,0.30 Cr
+Jalaj Saxena,AR,Uncapped AR (UA10),1,0 Wkts,13.0 Econ,0.40 Cr
+Yajas Sharma,AR,Uncapped AR (UA10),0,0 Runs / 0 Wkts,-,0.30 Cr
+Sanjay Yadav,AR,Uncapped AR (UA10),2,0 Runs / 0 Wkts,-,0.30 Cr
+Vishal Godara,BOWL,Uncapped Fast (UFA10),0,0 Wkts,-,0.30 Cr
+Eshan Malinga,BOWL,Uncapped Fast (UFA10),0,0 Wkts,-,0.30 Cr
+Samarth Nagaraj,BOWL,Uncapped Fast (UFA10),0,0 Wkts,-,0.30 Cr
+Abhishek Saini,BOWL,Uncapped Fast (UFA10),0,0 Wkts,-,0.30 Cr
+Dumindu Sewmina,BOWL,Uncapped Fast (UFA10),0,0 Wkts,-,0.30 Cr
+Pradyuman Singh,BOWL,Uncapped Fast (UFA10),0,0 Wkts,-,0.30 Cr
+Vasu Vats,BOWL,Uncapped Fast (UFA10),0,0 Wkts,-,0.30 Cr
+Umang Kumar,AR,Uncapped AR (UA11),0,0 Runs / 0 Wkts,-,0.30 Cr
+Mohamed Ali,AR,Uncapped AR (UA11),0,0 Runs / 0 Wkts,-,0.30 Cr
+Atharva Ankolekar,AR,Uncapped AR (UA11),0,0 Runs / 0 Wkts,-,0.30 Cr
+V. Chandran,AR,Uncapped AR (UA11),0,0 Runs / 0 Wkts,-,0.30 Cr
+Auqib Nabi,AR,Uncapped AR (UA11),0,0 Runs / 0 Wkts,-,0.30 Cr
+Rohit Rayudu,AR,Uncapped AR (UA11),0,0 Runs / 0 Wkts,-,0.30 Cr
+Uday Saharan,AR,Uncapped AR (UA11),0,0 Runs / 0 Wkts,-,0.30 Cr
+Ayush Vartak,AR,Uncapped AR (UA11),0,0 Runs / 0 Wkts,-,0.30 Cr
+Baba Aparajith,AR,Uncapped AR (UA12),0,0 Runs / 0 Wkts,-,0.30 Cr
+Sumit Beniwal,AR,Uncapped AR (UA12),0,0 Runs / 0 Wkts,-,0.30 Cr
+Nishunk Birla,AR,Uncapped AR (UA12),0,0 Runs / 0 Wkts,-,0.30 Cr
+D. Deshmukh,AR,Uncapped AR (UA12),1,0 Runs / 0 Wkts,-,0.30 Cr
+Lakshay Jain,AR,Uncapped AR (UA12),0,0 Runs / 0 Wkts,-,0.30 Cr
+Duan Jansen,AR,Uncapped AR (UA12),1,0 Runs / 0 Wkts,13.0 Econ,0.30 Cr
+Kritagya Singh,AR,Uncapped AR (UA12),0,0 Runs / 0 Wkts,-,0.30 Cr
+P Vignesh,AR,Uncapped AR (UA12),0,0 Runs / 0 Wkts,-,0.30 Cr
+Sabhay Chadha,AR,Uncapped AR (UA13),0,0 Runs / 0 Wkts,-,0.30 Cr
+Benny Howell,AR,Uncapped AR (UA13),0,0 Runs / 0 Wkts,-,0.30 Cr
+Hemanth Kumar,AR,Uncapped AR (UA13),0,0 Runs / 0 Wkts,-,0.30 Cr
+Rohan Rana,AR,Uncapped AR (UA13),0,0 Runs / 0 Wkts,-,0.30 Cr
+Bharat Sharma,AR,Uncapped AR (UA13),0,0 Runs / 0 Wkts,-,0.30 Cr
+Pratham Singh,AR,Uncapped AR (UA13),0,0 Runs / 0 Wkts,-,0.30 Cr
+Tripurana Vijay,AR,Uncapped AR (UA13),0,0 Runs / 0 Wkts,-,0.30 Cr
+Ravi Kumar Yadav,AR,Uncapped AR (UA13),0,0 Runs / 0 Wkts,-,0.30 Cr
+Arjun Azad,AR,Uncapped AR (UA14),0,0 Runs / 0 Wkts,-,0.30 Cr
+Abhay Choudhary,AR,Uncapped AR (UA14),0,0 Runs / 0 Wkts,-,0.30 Cr
+Gaurav Gambhir,AR,Uncapped AR (UA14),0,0 Runs / 0 Wkts,-,0.30 Cr
+Shubham Garhwal,AR,Uncapped AR (UA14),0,0 Runs / 0 Wkts,-,0.30 Cr
+Tejasvi Jaiswal,AR,Uncapped AR (UA14),0,0 Runs / 0 Wkts,-,0.30 Cr
+Sairaj Patil,AR,Uncapped AR (UA14),0,0 Runs / 0 Wkts,-,0.30 Cr
+Madhav Tiwari,AR,Uncapped AR (UA14),0,0 Runs / 0 Wkts,-,0.30 Cr
+Kamal Tripathi,AR,Uncapped AR (UA14),0,0 Runs / 0 Wkts,-,0.30 Cr
+P. Chauhan,AR,Uncapped AR (UA15),0,0 Runs / 0 Wkts,-,0.30 Cr
+Yash Dabas,AR,Uncapped AR (UA15),0,0 Runs / 0 Wkts,-,0.30 Cr
+Dhruv Kaushik,AR,Uncapped AR (UA15),0,0 Runs / 0 Wkts,-,0.30 Cr
+Khrievitso Kense,AR,Uncapped AR (UA15),0,0 Runs / 0 Wkts,-,0.30 Cr
+Akash Parkar,AR,Uncapped AR (UA15),0,0 Runs / 0 Wkts,-,0.30 Cr
+Vignesh Puthur,AR,Uncapped AR (UA15),0,0 Runs / 0 Wkts,-,0.30 Cr
+Tripuresh Singh,AR,Uncapped AR (UA15),0,0 Runs / 0 Wkts,-,0.30 Cr
+Vijay Yadav,AR,Uncapped AR (UA15),0,0 Runs / 0 Wkts,-,0.30 Cr
+Jofra Archer,BOWL,Capped Fast (CFA12),40,48 Wkts,7.43 Econ,2.00 Cr
+S. Netravalkar,BOWL,Uncapped Fast (UFA10),0,0 Wkts,-,0.30 Cr
+Hardik Tamore,WK,Uncapped WK (UK6),0,0 Runs,-,0.30 Cr
+Daryl Mitchell,AR,Capped AR (CA10),15,351 Runs / 1 Wkt,141.5 SR / 11.2 Econ,2.00 Cr
