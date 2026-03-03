@@ -508,7 +508,11 @@ app.prepare().then(() => {
         });
     });
 
-    httpServer.listen(3000, () => {
-        console.log('> IPL Auction Simulator ready on http://localhost:3000');
+    const PORT = process.env.PORT || 3000;
+
+
+    httpServer.listen(PORT, () => {
+        console.log(`> IPL Auction Simulator ready on port ${PORT}`);
     });
+
 });
