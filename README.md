@@ -15,8 +15,9 @@
 
 
 
-
+<div align="center">
 [🌟 Live Demo: Play IPL Auction Simulator Here!](https://auctionsimulator.onrender.com)
+</div>
 
 
 ---
