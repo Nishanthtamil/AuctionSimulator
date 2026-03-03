@@ -95,8 +95,9 @@ export default function AuctionPage() {
   const [auction, setAuction] = useState(null);
   const [userId, setUserId] = useState('');
   const [myTeamId, setMyTeamId] = useState('');
-  const [users, setUsers] = useState([]);
+  const [users, setUsers] = useState<any[]>([]);
   const [timer, setTimer] = useState(30);
+  const [maxTimer, setMaxTimer] = useState(30);
   const [bidLog, setBidLog] = useState([]);
   const [chat, setChat] = useState([]);
   const [chatInput, setChatInput] = useState('');
@@ -106,6 +107,10 @@ export default function AuctionPage() {
   const [bidding, setBidding] = useState(false);
   const [error, setError] = useState('');
   const [squadOpen, setSquadOpen] = useState(false);
+  const [showStatusWidget, setShowStatusWidget] = useState(false);
+  const [showTimerSettings, setShowTimerSettings] = useState(false);
+  const [initialTimerSetting, setInitialTimerSetting] = useState(30);
+  const [bidTimerSetting, setBidTimerSetting] = useState(15);
   const chatEndRef = useRef(null);
 
   useEffect(() => {
@@ -122,6 +127,11 @@ export default function AuctionPage() {
         const me = room.users.find(u => u.id === uid);
         setMyTeamId(me?.teamId || '');
         setUsers(room.users || []);
+        if (room.initialTimer) {
+          setMaxTimer(room.initialTimer);
+          setInitialTimerSetting(room.initialTimer);
+        }
+        if (room.bidTimer) setBidTimerSetting(room.bidTimer);
         if (room.auction) {
           setAuction(room.auction);
           setTimer(room.auction.timerSeconds || 30);
@@ -168,6 +178,12 @@ export default function AuctionPage() {
 
     socket.on('new_message', (msg) => {
       setChat(prev => [...prev.slice(-99), msg]);
+    });
+
+    socket.on('timer_settings_updated', ({ initialTimer: newInitial, bidTimer: newBid }) => {
+      setMaxTimer(newInitial);
+      setInitialTimerSetting(newInitial);
+      setBidTimerSetting(newBid);
     });
 
     return () => socket?.disconnect();
@@ -258,6 +274,106 @@ export default function AuctionPage() {
           </div>
         )}
 
+        {/* STATUS WIDGET MODAL */}
+        {showStatusWidget && (
+          <div style={{ position: 'fixed', inset: 0, zIndex: 10000, background: 'rgba(0,0,0,0.8)', display: 'flex', alignItems: 'center', justifyContent: 'center', animation: 'fadeIn 0.2s ease' }} onClick={() => setShowStatusWidget(false)}>
+            <div style={{ background: 'var(--bg-card)', border: '1px solid var(--border)', borderRadius: 16, padding: '32px', width: '100%', maxWidth: 500, boxShadow: '0 0 40px rgba(0,0,0,0.5)' }} onClick={e => e.stopPropagation()}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 24 }}>
+                <h2 style={{ fontFamily: "'Bebas Neue', cursive", fontSize: 32, color: 'var(--gold)', letterSpacing: '0.05em', margin: 0 }}>AUCTION STATUS</h2>
+                <button onClick={() => setShowStatusWidget(false)} style={{ background: 'transparent', border: 'none', color: 'var(--text-secondary)', fontSize: 24, cursor: 'pointer' }}>×</button>
+              </div>
+
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', padding: '12px 16px', background: 'var(--bg-secondary)', borderRadius: 8 }}>
+                  <span style={{ color: 'var(--text-secondary)', fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: 14 }}>UPCOMING PLAYER</span>
+                  <span style={{ fontWeight: 600, color: 'var(--blue-bright)' }}>{auction.upcomingPlayer ? auction.upcomingPlayer.name : '—'}</span>
+                </div>
+
+                <div style={{ display: 'flex', justifyContent: 'space-between', padding: '12px 16px', background: 'var(--bg-secondary)', borderRadius: 8 }}>
+                  <span style={{ color: 'var(--text-secondary)', fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: 14 }}>HIGHEST BID</span>
+                  <div style={{ textAlign: 'right' }}>
+                    {(() => {
+                      let hb = 0; let hp = '';
+                      (auction.soldPlayers || []).forEach((p: any) => { if (p.soldFor > hb) { hb = p.soldFor; hp = p.name; } });
+                      return hb > 0 ? <span style={{ fontWeight: 600, color: 'var(--gold)' }}>₹{hb.toFixed(2)} Cr ({hp})</span> : <span style={{ color: 'var(--text-dim)' }}>None</span>;
+                    })()}
+                  </div>
+                </div>
+
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
+                  <div style={{ padding: '16px', background: 'var(--bg-secondary)', borderRadius: 8, textAlign: 'center' }}>
+                    <div style={{ color: 'var(--text-secondary)', fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: 14, marginBottom: 8 }}>SOLD PLAYERS</div>
+                    <div style={{ fontFamily: "'Bebas Neue', cursive", fontSize: 28, color: 'var(--green)' }}>{auction.soldPlayers?.length || 0}</div>
+                  </div>
+                  <div style={{ padding: '16px', background: 'var(--bg-secondary)', borderRadius: 8, textAlign: 'center' }}>
+                    <div style={{ color: 'var(--text-secondary)', fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: 14, marginBottom: 8 }}>UNSOLD PLAYERS</div>
+                    <div style={{ fontFamily: "'Bebas Neue', cursive", fontSize: 28, color: '#ff4444' }}>{auction.unsoldPlayers?.length || 0}</div>
+                  </div>
+                </div>
+
+                <div style={{ display: 'flex', justifyContent: 'space-between', padding: '12px 16px', background: 'var(--bg-secondary)', borderRadius: 8 }}>
+                  <span style={{ color: 'var(--text-secondary)', fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: 14 }}>HIGHEST SPENDING TEAM</span>
+                  <div style={{ display: 'flex', gap: 8, alignItems: 'center', justifyContent: 'flex-end' }}>
+                    {(() => {
+                      let ms = 0; let mt = '';
+                      // Must be > 0.00. Since max purse is 120.00
+                      Object.entries(auction.teamStates || {}).forEach(([t, ts]: [string, any]) => {
+                        const spent = 120 - (ts.purse || 120);
+                        if (spent > ms && spent > 0.01) { ms = spent; mt = t; }
+                      });
+                      return ms > 0 ? <><TeamBadge teamId={mt} size="sm" /> <span style={{ fontWeight: 600 }}>₹{ms.toFixed(2)} Cr</span></> : <span style={{ color: 'var(--text-dim)' }}>₹0.00 Cr</span>;
+                    })()}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* TIMER SETTINGS MODAL */}
+        {showTimerSettings && isHost && (
+          <div style={{ position: 'fixed', inset: 0, zIndex: 10000, background: 'rgba(0,0,0,0.8)', display: 'flex', alignItems: 'center', justifyContent: 'center', animation: 'fadeIn 0.2s ease' }} onClick={() => setShowTimerSettings(false)}>
+            <div style={{ background: 'var(--bg-card)', border: '1px solid var(--border)', borderRadius: 16, padding: '32px', width: '100%', maxWidth: 400, boxShadow: '0 0 40px rgba(0,0,0,0.5)' }} onClick={e => e.stopPropagation()}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 24 }}>
+                <h2 style={{ fontFamily: "'Bebas Neue', cursive", fontSize: 28, color: 'var(--blue-bright)', letterSpacing: '0.05em', margin: 0 }}>⚙️ TIMER SETTINGS</h2>
+                <button onClick={() => setShowTimerSettings(false)} style={{ background: 'transparent', border: 'none', color: 'var(--text-secondary)', fontSize: 24, cursor: 'pointer' }}>×</button>
+              </div>
+
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+                <div>
+                  <label style={{ fontSize: 13, color: 'var(--text-secondary)', display: 'block', marginBottom: 8, fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, letterSpacing: '0.1em' }}>INITIAL TIMER (SEC):</label>
+                  <input
+                    type="number"
+                    value={initialTimerSetting}
+                    onChange={e => {
+                      const val = Number(e.target.value);
+                      setInitialTimerSetting(val);
+                      socket.emit('update_timer_settings', { initialTimer: val, bidTimer: bidTimerSetting });
+                    }}
+                    style={{ background: '#111', border: '1px solid var(--border)', color: 'white', padding: '10px 14px', borderRadius: 8, width: '100%', outline: 'none', fontSize: 16 }}
+                  />
+                  <p style={{ fontSize: 11, color: 'var(--text-dim)', marginTop: 4 }}>Time given when a new player is drawn.</p>
+                </div>
+
+                <div style={{ marginTop: 8 }}>
+                  <label style={{ fontSize: 13, color: 'var(--text-secondary)', display: 'block', marginBottom: 8, fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, letterSpacing: '0.1em' }}>BID RESET TIMER (SEC):</label>
+                  <input
+                    type="number"
+                    value={bidTimerSetting}
+                    onChange={e => {
+                      const val = Number(e.target.value);
+                      setBidTimerSetting(val);
+                      socket.emit('update_timer_settings', { initialTimer: initialTimerSetting, bidTimer: val });
+                    }}
+                    style={{ background: '#111', border: '1px solid var(--border)', color: 'white', padding: '10px 14px', borderRadius: 8, width: '100%', outline: 'none', fontSize: 16 }}
+                  />
+                  <p style={{ fontSize: 11, color: 'var(--text-dim)', marginTop: 4 }}>Time given after a bid is placed.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
         {/* HEADER */}
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0 20px', height: 56, background: 'var(--bg-card)', borderBottom: '1px solid var(--border)', position: 'sticky', top: 0, zIndex: 100 }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
@@ -266,6 +382,12 @@ export default function AuctionPage() {
               <div style={{ width: 6, height: 6, background: '#ff4444', borderRadius: '50%', animation: 'pulse 1s infinite' }} />
               LIVE
             </div>
+            <button
+              onClick={() => setShowStatusWidget(true)}
+              style={{ padding: '4px 12px', background: 'var(--blue-bright)', color: '#fff', border: 'none', borderRadius: 6, cursor: 'pointer', fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, marginLeft: 16 }}
+            >
+              📊 STATUS
+            </button>
           </div>
           <span style={{ color: 'var(--text-secondary)', fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: 13 }}>
             Player {auction.currentIndex + 1} / {auction.totalPlayers}
@@ -367,6 +489,9 @@ export default function AuctionPage() {
               </span>
               {isHost && (
                 <div style={{ display: 'flex', gap: 8 }}>
+                  <button onClick={() => setShowTimerSettings(true)} style={{ background: 'var(--blue-bright)', border: 'none', color: '#fff', padding: '4px 10px', borderRadius: 4, fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: 11, cursor: 'pointer' }}>
+                    ⚙️ TIMERS
+                  </button>
                   <button onClick={togglePause} style={{ background: auction.isPaused ? 'var(--blue-bright)' : 'rgba(255,166,0,0.2)', border: '1px solid var(--border-bright)', color: auction.isPaused ? '#fff' : '#ffa600', padding: '4px 10px', borderRadius: 4, fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: 11, cursor: 'pointer' }}>
                     {auction.isPaused ? '▶ RESUME' : '⏸ PAUSE'}
                   </button>
@@ -377,7 +502,7 @@ export default function AuctionPage() {
               )}
             </div>
             <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '24px 20px', gap: 20, minHeight: 0 }}>
-              <TimerCircle seconds={timer} maxSeconds={30} />
+              <TimerCircle seconds={timer} maxSeconds={maxTimer} />
 
               {/* Current bid box */}
               <div style={{ textAlign: 'center', padding: '20px 32px', borderRadius: 12, border: '1px solid var(--border)', width: '100%', maxWidth: 360, background: flash ? 'rgba(74,158,255,0.12)' : 'transparent', transition: 'background 0.4s' }}>

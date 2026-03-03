@@ -42,6 +42,8 @@ export default function RoomPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [copied, setCopied] = useState(false);
+  const [initialTimer, setInitialTimer] = useState(30);
+  const [bidTimer, setBidTimer] = useState(15);
 
   useEffect(() => {
     if (!code) return;
@@ -59,6 +61,8 @@ export default function RoomPage() {
         if (!success) { router.push('/'); return; }
         setRoom(r);
         setTeams(t || []);
+        if (r.initialTimer) setInitialTimer(r.initialTimer);
+        if (r.bidTimer) setBidTimer(r.bidTimer);
         const me = r.users.find(u => u.id === uid);
         if (me?.teamId) setMyTeam(me.teamId);
         setLoading(false);
@@ -79,6 +83,12 @@ export default function RoomPage() {
 
     socket.on('auction_started', () => {
       router.push(`/auction/${code}`);
+    });
+
+    socket.on('timer_settings_updated', ({ initialTimer: newInitial, bidTimer: newBid }) => {
+      setInitialTimer(newInitial);
+      setBidTimer(newBid);
+      setRoom(prev => prev ? { ...prev, initialTimer: newInitial, bidTimer: newBid } : prev);
     });
 
     return () => socket?.disconnect();
@@ -230,6 +240,33 @@ export default function RoomPage() {
             {isHost && (
               <div style={s.sideCard}>
                 <h3 style={s.sideTitle}>HOST CONTROLS</h3>
+
+                <div style={{ marginBottom: 16 }}>
+                  <label style={{ fontSize: 13, color: 'var(--text-secondary)', display: 'block', marginBottom: 4 }}>Initial Timer (sec):</label>
+                  <input
+                    type="number"
+                    value={initialTimer}
+                    onChange={e => {
+                      const val = Number(e.target.value);
+                      setInitialTimer(val);
+                      socket.emit('update_timer_settings', { initialTimer: val, bidTimer });
+                    }}
+                    style={{ background: '#111', border: '1px solid var(--border)', color: 'white', padding: '6px 10px', borderRadius: 4, width: '100%', marginBottom: 12, outline: 'none' }}
+                  />
+
+                  <label style={{ fontSize: 13, color: 'var(--text-secondary)', display: 'block', marginBottom: 4 }}>Bid Reset Timer (sec):</label>
+                  <input
+                    type="number"
+                    value={bidTimer}
+                    onChange={e => {
+                      const val = Number(e.target.value);
+                      setBidTimer(val);
+                      socket.emit('update_timer_settings', { initialTimer, bidTimer: val });
+                    }}
+                    style={{ background: '#111', border: '1px solid var(--border)', color: 'white', padding: '6px 10px', borderRadius: 4, width: '100%', outline: 'none' }}
+                  />
+                </div>
+
                 <p style={{ fontSize: 13, color: 'var(--text-secondary)', marginBottom: 16 }}>
                   {canStart ? 'Ready to start! At least one team has been selected.' : 'Waiting for players to select teams...'}
                 </p>

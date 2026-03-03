@@ -73,6 +73,8 @@ export interface Room {
     users: RoomUser[];
     chat: ChatMessage[];
     auction: AuctionState | null;
+    initialTimer: number;
+    bidTimer: number;
 }
 
 const rooms = new Map<string, Room>();
@@ -146,6 +148,8 @@ function createRoom(hostName: string, hostId: string): Room {
         }],
         chat: [],
         auction: null,
+        initialTimer: 30,
+        bidTimer: 15,
     };
     rooms.set(code, room);
     return room;
@@ -180,7 +184,7 @@ function initAuction(room: Room) {
         currentIndex: 0,
         currentBid: shuffledPlayers[0]?.basePrice || 0,
         highestBidder: null,
-        timerSeconds: 30,
+        timerSeconds: room.initialTimer,
         bidLog: [],
         teamStates,
         soldPlayers: [],
@@ -283,7 +287,7 @@ function advanceToNextPlayer(io: Server, roomCode: string) {
     const nextPlayer = a.players[a.currentIndex];
     a.currentBid = nextPlayer.basePrice;
     a.highestBidder = null;
-    a.timerSeconds = 30;
+    a.timerSeconds = room.initialTimer;
     a.bidLog = [];
     io.to(roomCode).emit('next_player', { player: nextPlayer, auction: serializeAuction(a) });
     startBidTimer(io, roomCode);
@@ -292,6 +296,7 @@ function advanceToNextPlayer(io: Server, roomCode: string) {
 function serializeAuction(a: AuctionState) {
     return {
         currentPlayer: a.players[a.currentIndex],
+        upcomingPlayer: a.players[a.currentIndex + 1] || null,
         currentBid: a.currentBid,
         highestBidder: a.highestBidder,
         timerSeconds: a.timerSeconds,
@@ -300,6 +305,8 @@ function serializeAuction(a: AuctionState) {
         totalPlayers: a.players.length,
         currentIndex: a.currentIndex,
         isPaused: a.isPaused || false,
+        soldPlayers: a.soldPlayers,
+        unsoldPlayers: a.unsoldPlayers,
     };
 }
 
@@ -312,6 +319,8 @@ function sanitizeRoom(room: Room) {
         teams: IPL_TEAMS,
         auction: room.auction ? serializeAuction(room.auction) : null,
         chat: room.chat || [],
+        initialTimer: room.initialTimer,
+        bidTimer: room.bidTimer,
     };
 }
 
@@ -419,7 +428,7 @@ app.prepare().then(() => {
             a.currentBid = newBid;
             a.highestBidder = team;
 
-            a.timerSeconds = 15;
+            a.timerSeconds = room.bidTimer;
 
             a.bidLog.unshift({ teamId: team, amount: newBid, time: new Date().toLocaleTimeString() });
             if (a.bidLog.length > 10) a.bidLog.pop();
@@ -463,6 +472,21 @@ app.prepare().then(() => {
                 pauseBidTimer(io, room.code);
             }
             if (cb) cb({ success: true, isPaused: room.auction.isPaused });
+        });
+
+        socket.on('update_timer_settings', ({ initialTimer, bidTimer }, cb) => {
+            const room = rooms.get(socket.data.roomCode);
+            if (!room) return cb && cb({ success: false, error: 'Room not found' });
+            if (room.hostId !== socket.data.userId) return cb && cb({ success: false, error: 'Only host can change timer' });
+
+            if (initialTimer) room.initialTimer = parseInt(initialTimer, 10);
+            if (bidTimer) room.bidTimer = parseInt(bidTimer, 10);
+
+            io.to(room.code).emit('timer_settings_updated', {
+                initialTimer: room.initialTimer,
+                bidTimer: room.bidTimer
+            });
+            if (cb) cb({ success: true });
         });
 
         socket.on('end_auction', (_, cb) => {
