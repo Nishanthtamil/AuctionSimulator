@@ -9,6 +9,8 @@ A rich, real-time multiplayer application designed to simulate the fast-paced th
 [![Socket.io](https://img.shields.io/badge/Socket.io-4.x-black?style=for-the-badge&logo=socket.io)](https://socket.io/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.x-blue?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
 
+**[🌟 Live Demo: Play IPL Auction Simulator Here!](https://auctionsimulator.onrender.com)**
+
 </div>
 
 ---
