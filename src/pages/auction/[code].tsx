@@ -248,7 +248,28 @@ export default function AuctionPage() {
 
   return (
     <>
-      <Head><title>IPL Auction — LIVE</title></Head>
+      <Head>
+        <title>IPL Auction — LIVE</title>
+        <style dangerouslySetInnerHTML={{
+          __html: `
+            .main-grid { display: grid; grid-template-columns: 340px 1fr 280px; flex: 1; min-height: 500px; }
+            .left-panel { border-right: 1px solid var(--border); display: flex; flex-direction: column; }
+            .center-panel { border-right: 1px solid var(--border); display: flex; flex-direction: column; }
+            .right-panel { display: flex; flex-direction: column; }
+            .header-bar { display: flex; align-items: center; justify-content: space-between; padding: 0 20px; height: 56px; background: var(--bg-card); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
+            .header-left { display: flex; align-items: center; gap: 12px; }
+            
+            @media (max-width: 1024px) {
+              .main-grid { display: flex; flex-direction: column; }
+              .left-panel { border-right: none; border-bottom: 1px solid var(--border); }
+              .center-panel { border-right: none; border-bottom: 1px solid var(--border); }
+              .right-panel { height: 400px; border-bottom: 1px solid var(--border); }
+              .header-bar { height: auto; min-height: 56px; padding: 12px 16px; flex-wrap: wrap; gap: 12px; }
+              .header-left { flex-wrap: wrap; gap: 8px; }
+            }
+          `
+        }} />
+      </Head>
       <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', background: 'var(--bg-primary)', position: 'relative' }}>
         <div style={{ position: 'fixed' as const, inset: 0, backgroundColor: 'rgba(16,42,90,0.2)', pointerEvents: 'none' as const, zIndex: 0 }} />
 
@@ -277,7 +298,7 @@ export default function AuctionPage() {
         {/* STATUS WIDGET MODAL */}
         {showStatusWidget && (
           <div style={{ position: 'fixed', inset: 0, zIndex: 10000, background: 'rgba(0,0,0,0.8)', display: 'flex', alignItems: 'center', justifyContent: 'center', animation: 'fadeIn 0.2s ease' }} onClick={() => setShowStatusWidget(false)}>
-            <div style={{ background: 'var(--bg-card)', border: '1px solid var(--border)', borderRadius: 16, padding: '32px', width: '100%', maxWidth: 500, boxShadow: '0 0 40px rgba(0,0,0,0.5)' }} onClick={e => e.stopPropagation()}>
+            <div style={{ background: 'var(--bg-card)', border: '1px solid var(--border)', borderRadius: 16, padding: '24px', width: '90%', maxWidth: 500, boxShadow: '0 0 40px rgba(0,0,0,0.5)' }} onClick={e => e.stopPropagation()}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 24 }}>
                 <h2 style={{ fontFamily: "'Bebas Neue', cursive", fontSize: 32, color: 'var(--gold)', letterSpacing: '0.05em', margin: 0 }}>AUCTION STATUS</h2>
                 <button onClick={() => setShowStatusWidget(false)} style={{ background: 'transparent', border: 'none', color: 'var(--text-secondary)', fontSize: 24, cursor: 'pointer' }}>×</button>
@@ -333,7 +354,7 @@ export default function AuctionPage() {
         {/* TIMER SETTINGS MODAL */}
         {showTimerSettings && isHost && (
           <div style={{ position: 'fixed', inset: 0, zIndex: 10000, background: 'rgba(0,0,0,0.8)', display: 'flex', alignItems: 'center', justifyContent: 'center', animation: 'fadeIn 0.2s ease' }} onClick={() => setShowTimerSettings(false)}>
-            <div style={{ background: 'var(--bg-card)', border: '1px solid var(--border)', borderRadius: 16, padding: '32px', width: '100%', maxWidth: 400, boxShadow: '0 0 40px rgba(0,0,0,0.5)' }} onClick={e => e.stopPropagation()}>
+            <div style={{ background: 'var(--bg-card)', border: '1px solid var(--border)', borderRadius: 16, padding: '24px', width: '90%', maxWidth: 400, boxShadow: '0 0 40px rgba(0,0,0,0.5)' }} onClick={e => e.stopPropagation()}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 24 }}>
                 <h2 style={{ fontFamily: "'Bebas Neue', cursive", fontSize: 28, color: 'var(--blue-bright)', letterSpacing: '0.05em', margin: 0 }}>⚙️ TIMER SETTINGS</h2>
                 <button onClick={() => setShowTimerSettings(false)} style={{ background: 'transparent', border: 'none', color: 'var(--text-secondary)', fontSize: 24, cursor: 'pointer' }}>×</button>
@@ -375,8 +396,9 @@ export default function AuctionPage() {
         )}
 
         {/* HEADER */}
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0 20px', height: 56, background: 'var(--bg-card)', borderBottom: '1px solid var(--border)', position: 'sticky', top: 0, zIndex: 100 }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+        {/* HEADER */}
+        <div className="header-bar">
+          <div className="header-left">
             <span style={{ fontFamily: "'Bebas Neue', cursive", fontSize: 20, color: 'var(--gold)', letterSpacing: '0.05em' }}>🏆 IPL AUCTION</span>
             <div style={{ display: 'flex', alignItems: 'center', gap: 6, background: 'rgba(255,68,68,0.15)', border: '1px solid rgba(255,68,68,0.5)', borderRadius: 20, padding: '3px 10px', color: '#ff4444', fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: 12, letterSpacing: '0.1em' }}>
               <div style={{ width: 6, height: 6, background: '#ff4444', borderRadius: '50%', animation: 'pulse 1s infinite' }} />
@@ -384,7 +406,7 @@ export default function AuctionPage() {
             </div>
             <button
               onClick={() => setShowStatusWidget(true)}
-              style={{ padding: '4px 12px', background: 'var(--blue-bright)', color: '#fff', border: 'none', borderRadius: 6, cursor: 'pointer', fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, marginLeft: 16 }}
+              style={{ padding: '4px 12px', background: 'var(--blue-bright)', color: '#fff', border: 'none', borderRadius: 6, cursor: 'pointer', fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700 }}
             >
               📊 STATUS
             </button>
@@ -401,10 +423,11 @@ export default function AuctionPage() {
         </div>
 
         {/* MAIN 3-COLUMN LAYOUT */}
-        <div style={{ display: 'grid', gridTemplateColumns: '340px 1fr 280px', flex: 1, minHeight: 500 }}>
+        {/* MAIN 3-COLUMN LAYOUT */}
+        <div className="main-grid">
 
           {/* LEFT: Player on Block */}
-          <div style={{ borderRight: '1px solid var(--border)', display: 'flex', flexDirection: 'column' }}>
+          <div className="left-panel">
             <div style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: 12, letterSpacing: '0.2em', color: 'var(--text-secondary)', padding: '12px 16px 8px', borderBottom: '1px solid var(--border)', background: 'rgba(255,255,255,0.02)' }}>
               👤 PLAYER ON THE BLOCK
             </div>
@@ -482,13 +505,13 @@ export default function AuctionPage() {
           </div>
 
           {/* CENTER: Bidding Arena */}
-          <div style={{ borderRight: '1px solid var(--border)', display: 'flex', flexDirection: 'column' }}>
+          <div className="center-panel">
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '12px 16px 8px', borderBottom: '1px solid var(--border)', background: 'rgba(255,255,255,0.02)' }}>
               <span style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: 12, letterSpacing: '0.2em', color: 'var(--text-secondary)' }}>
                 ⚡ THE BIDDING ARENA
               </span>
               {isHost && (
-                <div style={{ display: 'flex', gap: 8 }}>
+                <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
                   <button onClick={() => setShowTimerSettings(true)} style={{ background: 'var(--blue-bright)', border: 'none', color: '#fff', padding: '4px 10px', borderRadius: 4, fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: 11, cursor: 'pointer' }}>
                     ⚙️ TIMERS
                   </button>
@@ -560,7 +583,7 @@ export default function AuctionPage() {
           </div>
 
           {/* RIGHT: Chat */}
-          <div style={{ display: 'flex', flexDirection: 'column' }}>
+          <div className="right-panel">
             <div style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: 12, letterSpacing: '0.2em', color: 'var(--text-secondary)', padding: '12px 16px 8px', borderBottom: '1px solid var(--border)', background: 'rgba(255,255,255,0.02)' }}>
               💬 LIVE CHAT
             </div>
