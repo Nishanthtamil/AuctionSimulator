@@ -12,7 +12,11 @@
     <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
   </a>
 </div>
-**[🌟 Live Demo: Play IPL Auction Simulator Here!](https://auctionsimulator.onrender.com)**
+
+
+
+
+[🌟 Live Demo: Play IPL Auction Simulator Here!](https://auctionsimulator.onrender.com)
 
 
 ---
