@@ -20,7 +20,7 @@ const TEAM_COLORS: Record<string, any> = {
 };
 
 const TEAM_LOGOS: Record<string, string> = {
-  CSK: '/logo/csk_logo.png',
+  CSK: '/logo/csk_logo.jpeg',
   MI: '/logo/MI_logo.png',
   RCB: '/logo/RCB_logo.png',
   KKR: '/logo/KKR_logo.jpg',
