@@ -29,6 +29,7 @@ export interface TeamState {
     purse: number;
     squad: any[];
     overseas: number;
+    overseasCount?: number;
 }
 
 export interface BidLogEntry {
@@ -118,7 +119,7 @@ function loadPlayers() {
                     id: `p${idCounter++}`,
                     name: row.Name,
                     role: row.Role || 'Unknown',
-                    country: 'IND', // Fallback as CSV doesn't specify country reliably for all
+                    country: row.Country || 'India', // Use Country column, fallback to India
                     age: 25, // Fallback
                     pool: row.Pool || 'Unknown',
                     matches: row.Matches || '0',
@@ -176,6 +177,7 @@ function initAuction(room: Room) {
             purse: 120.00,
             squad: [],
             overseas: 0,
+            overseasCount: 0,
         };
     });
 
@@ -225,8 +227,12 @@ function startBidTimer(io: Server, roomCode: string) {
                 const ts = a.teamStates[a.highestBidder];
                 ts.purse = Math.round((ts.purse - a.currentBid) * 100) / 100;
                 ts.squad.push({ ...player, soldFor: a.currentBid });
-                const isOverseas = player.country !== 'IND';
-                if (isOverseas) ts.overseas++;
+                const countryStr = player.country ? player.country.trim().toLowerCase() : '';
+                const isOverseas = countryStr !== 'india' && countryStr !== 'ind';
+                if (isOverseas) {
+                    ts.overseas++;
+                    ts.overseasCount = (ts.overseasCount || 0) + 1;
+                }
                 a.soldPlayers.push({ ...player, soldFor: a.currentBid, soldTo: a.highestBidder });
                 io.to(roomCode).emit('player_sold', {
                     player,
@@ -294,9 +300,13 @@ function advanceToNextPlayer(io: Server, roomCode: string) {
 }
 
 function serializeAuction(a: AuctionState) {
+    const currentPool = a.players[a.currentIndex]?.pool;
+    const currentPoolPlayers = a.players.slice(a.currentIndex + 1).filter(p => p.pool === currentPool);
+
     return {
         currentPlayer: a.players[a.currentIndex],
         upcomingPlayer: a.players[a.currentIndex + 1] || null,
+        currentPoolPlayers, // Added for option poll
         currentBid: a.currentBid,
         highestBidder: a.highestBidder,
         timerSeconds: a.timerSeconds,
@@ -424,7 +434,18 @@ app.prepare().then(() => {
             const inc = getBidIncrement(a.currentBid);
             const newBid = Math.round((a.currentBid + inc) * 100) / 100;
             const ts = a.teamStates[team];
+
             if (ts.purse < newBid) return cb && cb({ success: false, error: 'Insufficient purse' });
+
+            // Apply team restrictions
+            if (ts.squad.length >= 25) {
+                return cb && cb({ success: false, error: 'Squad is full (Max 25 players)' });
+            }
+            const isOverseas = a.players[a.currentIndex].country.toLowerCase() !== 'india' && a.players[a.currentIndex].country.toLowerCase() !== 'ind';
+            if (isOverseas && ts.overseas >= 8) {
+                return cb && cb({ success: false, error: 'Overseas limit reached (Max 8)' });
+            }
+
             a.currentBid = newBid;
             a.highestBidder = team;
 

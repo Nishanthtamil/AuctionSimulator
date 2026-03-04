@@ -45,71 +45,97 @@ export default function SummaryPage() {
             .catch(console.error);
     }, [code]);
 
-    useEffect(() => {
-        if (!data || !data.teamStates) return;
+    const [selectingFor, setSelectingFor] = useState<string | null>(null);
+    const [selectedPlayers, setSelectedPlayers] = useState<Record<string, boolean>>({});
 
-        const evaluateTeams = async () => {
-            for (const [teamId, ts] of Object.entries(data.teamStates) as [string, any][]) {
-                if (ts.squad && ts.squad.length > 0 && !evaluations[teamId] && !evaluating[teamId]) {
-                    setEvaluating(prev => ({ ...prev, [teamId]: true }));
+    const isOverseas = (p: any) => p && p.country && p.country.toLowerCase() !== 'india' && p.country.toLowerCase() !== 'ind';
 
-                    const players = ts.squad.map((p: any) => {
-                        let runs = 0, wickets = 0, strikeRate = 0, economy = 0;
-                        const primaryStr = String(p.primary || '0').replace(/[^0-9.]/g, '');
-                        const rateStr = String(p.rate || '0').replace(/[^0-9.]/g, '');
-                        const primaryNum = parseFloat(primaryStr) || 0;
-                        const rateNum = parseFloat(rateStr) || 0;
+    const triggerEvaluation = async (teamId: string) => {
+        const ts = data.teamStates[teamId];
+        if (!ts || !ts.squad) return;
 
-                        const role = (p.role || '').toLowerCase();
-                        if (role.includes('bowler')) {
-                            wickets = primaryNum;
-                            economy = rateNum;
-                        } else if (role.includes('batter') || role.includes('batsman') || role.includes('wicketkeeper') || role.includes('wk')) {
-                            runs = primaryNum;
-                            strikeRate = rateNum;
-                        } else {
-                            if (rateNum > 30) {
-                                runs = primaryNum;
-                                strikeRate = rateNum;
-                            } else {
-                                wickets = primaryNum;
-                                economy = rateNum;
-                            }
-                        }
+        // Get only selected players
+        const squadToEvaluate = ts.squad.filter((p: any) => selectedPlayers[p.id]);
 
-                        return {
-                            name: p.name,
-                            role: p.role || 'Unknown',
-                            matches: parseInt(p.matches) || 0,
-                            runs,
-                            strikeRate,
-                            wickets,
-                            economy,
-                            pricePaidCr: p.soldFor || p.basePrice || 0,
-                        };
-                    });
+        if (squadToEvaluate.length !== 11) {
+            alert("Please select exactly 11 players.");
+            return;
+        }
 
-                    try {
-                        const res = await fetch('/api/evaluate-squad', {
-                            method: 'POST',
-                            headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify({ teamName: teamId, players }),
-                        });
-                        const result = await res.json();
-                        if (!result.error) {
-                            setEvaluations(prev => ({ ...prev, [teamId]: result }));
-                        }
-                    } catch (e) {
-                        console.error('Evaluation error for ' + teamId, e);
-                    } finally {
-                        setEvaluating(prev => ({ ...prev, [teamId]: false }));
-                    }
+        const overseasCount = squadToEvaluate.filter(isOverseas).length;
+        if (overseasCount > 4) {
+            alert(`You can only select up to 4 overseas players. You have ${overseasCount}.`);
+            return;
+        }
+
+        setSelectingFor(null);
+        setEvaluating(prev => ({ ...prev, [teamId]: true }));
+
+        const players = squadToEvaluate.map((p: any) => {
+            let runs = 0, wickets = 0, strikeRate = 0, economy = 0;
+            const primaryStr = String(p.primary || '0').replace(/[^0-9.]/g, '');
+            const rateStr = String(p.rate || '0').replace(/[^0-9.]/g, '');
+            const primaryNum = parseFloat(primaryStr) || 0;
+            const rateNum = parseFloat(rateStr) || 0;
+
+            const role = (p.role || '').toLowerCase();
+            if (role.includes('bowler')) {
+                wickets = primaryNum;
+                economy = rateNum;
+            } else if (role.includes('batter') || role.includes('batsman') || role.includes('wicketkeeper') || role.includes('wk')) {
+                runs = primaryNum;
+                strikeRate = rateNum;
+            } else {
+                if (rateNum > 30) {
+                    runs = primaryNum;
+                    strikeRate = rateNum;
+                } else {
+                    wickets = primaryNum;
+                    economy = rateNum;
                 }
             }
-        };
 
-        evaluateTeams();
-    }, [data]);
+            return {
+                name: p.name,
+                role: p.role || 'Unknown',
+                matches: parseInt(p.matches) || 0,
+                runs,
+                strikeRate,
+                wickets,
+                economy,
+                pricePaidCr: p.soldFor || p.basePrice || 0,
+            };
+        });
+
+        try {
+            const res = await fetch('/api/evaluate-squad', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ teamName: teamId, players }),
+            });
+            const result = await res.json();
+            if (!result.error) {
+                setEvaluations(prev => ({ ...prev, [teamId]: result }));
+            }
+        } catch (e) {
+            console.error('Evaluation error for ' + teamId, e);
+        } finally {
+            setEvaluating(prev => ({ ...prev, [teamId]: false }));
+        }
+    };
+
+    const togglePlayerSelection = (playerId: string) => {
+        setSelectedPlayers(prev => ({
+            ...prev,
+            [playerId]: !prev[playerId]
+        }));
+    };
+
+    const openSelectionModal = (teamId: string) => {
+        // Clear selections so the user must pick exactly 11 themselves
+        setSelectedPlayers({});
+        setSelectingFor(teamId);
+    };
 
     if (!data) return (
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100vh', background: 'var(--bg-primary)' }}>
@@ -158,7 +184,7 @@ export default function SummaryPage() {
                                         <div style={{ display: 'flex', flexDirection: 'column', gap: 6, maxHeight: 200, overflowY: 'auto', paddingRight: 4 }}>
                                             {ts.squad?.map((p: any) => (
                                                 <div key={p.id} style={{ display: 'flex', justifyContent: 'space-between', fontSize: 13, background: 'rgba(255,255,255,0.02)', padding: '6px 8px', borderRadius: 4 }}>
-                                                    <span>{p.name}</span>
+                                                    <span>{p.name} {isOverseas(p) && '✈️'}</span>
                                                     <span style={{ color: 'var(--gold)', fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700 }}>₹{p.soldFor?.toFixed(2)}</span>
                                                 </div>
                                             ))}
@@ -174,9 +200,9 @@ export default function SummaryPage() {
                                             AI EVALUATION
                                         </div>
 
-                                        {(!ts.squad || ts.squad.length === 0) ? (
-                                            <div style={{ color: 'var(--text-dim)', fontSize: 12, fontStyle: 'italic', height: '100%', display: 'flex', alignItems: 'center' }}>
-                                                N/A
+                                        {(!ts.squad || ts.squad.length < 11) ? (
+                                            <div style={{ color: '#ff4444', fontSize: 12, fontStyle: 'italic', height: '100%', display: 'flex', alignItems: 'center' }}>
+                                                Need 11 players for evaluation.
                                             </div>
                                         ) : isEvaluating ? (
                                             <div style={{ color: 'var(--gold)', fontSize: 13, height: '100%', display: 'flex', alignItems: 'center', animation: 'pulse 1.5s infinite' }}>
@@ -201,8 +227,13 @@ export default function SummaryPage() {
                                                 </div>
                                             </div>
                                         ) : (
-                                            <div style={{ color: '#ff4444', fontSize: 12, fontStyle: 'italic', height: '100%', display: 'flex', alignItems: 'center' }}>
-                                                Evaluation failed or unavailable.
+                                            <div style={{ height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                                                <button
+                                                    onClick={() => openSelectionModal(teamId)}
+                                                    style={{ background: 'var(--blue-bright)', border: 'none', color: '#fff', padding: '10px 16px', borderRadius: 8, fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, cursor: 'pointer', letterSpacing: '0.05em' }}
+                                                >
+                                                    Select Best 11
+                                                </button>
                                             </div>
                                         )}
                                     </div>
@@ -212,6 +243,81 @@ export default function SummaryPage() {
                     })}
                 </div>
             </div>
+
+            {/* Best 11 Selection Modal */}
+            {selectingFor && data.teamStates[selectingFor] && (
+                <div style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.85)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 9999 }}>
+                    <div style={{ background: 'var(--bg-primary)', border: '1px solid var(--gold)', borderRadius: 16, padding: '24px', width: '90%', maxWidth: 600, maxHeight: '85vh', display: 'flex', flexDirection: 'column' }}>
+                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 16 }}>
+                            <div>
+                                <h2 style={{ fontFamily: "'Bebas Neue', cursive", fontSize: 36, color: 'var(--gold)', margin: 0 }}>SELECT BEST 11</h2>
+                                <p style={{ color: 'var(--text-secondary)', fontSize: 14, margin: '4px 0 0 0' }}>{selectingFor} Squad</p>
+                            </div>
+                            <button onClick={() => setSelectingFor(null)} style={{ background: 'transparent', border: 'none', color: '#fff', fontSize: 24, cursor: 'pointer' }}>×</button>
+                        </div>
+
+                        <div style={{ display: 'flex', gap: 16, marginBottom: 16 }}>
+                            <div style={{ background: 'rgba(255,255,255,0.05)', padding: '8px 12px', borderRadius: 8, fontSize: 13, borderColor: Object.values(selectedPlayers).filter(Boolean).length === 11 ? 'var(--green)' : 'var(--border)' }}>
+                                Selected: <span style={{ fontWeight: 'bold' }}>{Object.values(selectedPlayers).filter(Boolean).length} / 11</span>
+                            </div>
+                            <div style={{ background: 'rgba(255,255,255,0.05)', padding: '8px 12px', borderRadius: 8, fontSize: 13, borderColor: data.teamStates[selectingFor].squad.filter((p: any) => selectedPlayers[p.id] && isOverseas(p)).length > 4 ? '#ff4444' : 'var(--border)' }}>
+                                Overseas: <span style={{ fontWeight: 'bold' }}>{data.teamStates[selectingFor].squad.filter((p: any) => selectedPlayers[p.id] && isOverseas(p)).length} / 4</span> ✈️
+                            </div>
+                        </div>
+
+                        <div style={{ overflowY: 'auto', flex: 1, display: 'flex', flexDirection: 'column', gap: 16, paddingRight: 8 }}>
+                            {['Batsman', 'Wicket Keeper', 'All-Rounder', 'Bowler'].map(roleGroup => {
+                                const roleMappings: Record<string, string[]> = {
+                                    'Batsman': ['bat', 'wk/bat'],
+                                    'Wicket Keeper': ['wk', 'wk/bat'],
+                                    'All-Rounder': ['ar', 'all', 'alr'],
+                                    'Bowler': ['bowl', 'fast', 'spin']
+                                };
+                                const playersInRole = data.teamStates[selectingFor].squad.filter((p: any) => {
+                                    const pRole = (p.role || '').toLowerCase();
+                                    return roleMappings[roleGroup]?.some((r: string) => pRole.includes(r));
+                                });
+
+                                if (playersInRole.length === 0) return null;
+
+                                return (
+                                    <div key={roleGroup} style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+                                        <div style={{ fontFamily: "'Barlow Condensed', sans-serif", fontSize: 16, fontWeight: 700, color: 'var(--gold)', letterSpacing: '0.05em', borderBottom: '1px solid rgba(255,192,64,0.3)', paddingBottom: 4 }}>
+                                            {roleGroup.toUpperCase()}
+                                        </div>
+                                        {playersInRole.map((p: any) => (
+                                            <label key={p.id} style={{ display: 'flex', alignItems: 'center', gap: 12, background: selectedPlayers[p.id] ? 'rgba(74,158,255,0.1)' : 'rgba(255,255,255,0.02)', padding: '12px', borderRadius: 8, cursor: 'pointer', border: `1px solid ${selectedPlayers[p.id] ? 'rgba(74,158,255,0.5)' : 'rgba(255,255,255,0.05)'}` }}>
+                                                <input
+                                                    type="checkbox"
+                                                    checked={!!selectedPlayers[p.id]}
+                                                    onChange={() => togglePlayerSelection(p.id)}
+                                                    style={{ width: 18, height: 18 }}
+                                                />
+                                                <div style={{ flex: 1 }}>
+                                                    <div style={{ fontSize: 16, fontWeight: 600 }}>{p.name} {isOverseas(p) && '✈️'}</div>
+                                                    <div style={{ fontSize: 12, color: 'var(--text-secondary)' }}>{p.role}</div>
+                                                </div>
+                                                <div style={{ color: 'var(--gold)', fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700 }}>₹{p.soldFor?.toFixed(2)}</div>
+                                            </label>
+                                        ))}
+                                    </div>
+                                );
+                            })}
+                        </div>
+
+                        <div style={{ marginTop: 24, display: 'flex', justifyContent: 'flex-end', gap: 12 }}>
+                            <button onClick={() => setSelectingFor(null)} style={{ background: 'transparent', border: '1px solid var(--border)', color: 'var(--text-primary)', padding: '12px 20px', borderRadius: 8, cursor: 'pointer', fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700 }}>CANCEL</button>
+                            <button
+                                onClick={() => triggerEvaluation(selectingFor)}
+                                disabled={Object.values(selectedPlayers).filter(Boolean).length !== 11 || data.teamStates[selectingFor].squad.filter((p: any) => selectedPlayers[p.id] && isOverseas(p)).length > 4}
+                                style={{ background: 'var(--gold)', border: 'none', color: '#000', padding: '12px 24px', borderRadius: 8, cursor: 'pointer', fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, opacity: (Object.values(selectedPlayers).filter(Boolean).length !== 11 || data.teamStates[selectingFor].squad.filter((p: any) => selectedPlayers[p.id] && isOverseas(p)).length > 4) ? 0.5 : 1 }}
+                            >
+                                ELEVEN READY
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
         </>
     );
 }
