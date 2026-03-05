@@ -128,6 +128,7 @@ export default function AuctionPage() {
   const [squadOpen, setSquadOpen] = useState(false);
   const [showStatusWidget, setShowStatusWidget] = useState(false);
   const [showTimerSettings, setShowTimerSettings] = useState(false);
+  const [viewingTeamSquad, setViewingTeamSquad] = useState<string | null>(null);
   const [chatMessage, setChatMessage] = useState('');
   const [showSettings, setShowSettings] = useState(false);
   const [errorToast, setErrorToast] = useState('');
@@ -288,18 +289,18 @@ export default function AuctionPage() {
         <title>IPL Auction — LIVE</title>
         <style dangerouslySetInnerHTML={{
           __html: `
-            .main-grid { display: grid; grid-template-columns: 340px 1fr 340px; flex: 1; min-height: 500px; }
-            .left-panel { border-right: 1px solid var(--border); display: flex; flex-direction: column; }
-            .center-panel { border-right: 1px solid var(--border); display: flex; flex-direction: column; }
-            .right-panel { display: flex; flex-direction: column; }
-            .header-bar { display: flex; align-items: center; justify-content: space-between; padding: 0 20px; height: 56px; background: var(--bg-card); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
+            .main-grid { display: grid; grid-template-columns: 340px 1fr 340px; flex: 1; min-height: 500px; height: calc(100vh - 150px); }
+            .left-panel { border-right: 1px solid var(--border); display: flex; flex-direction: column; overflow-y: auto; overflow-x: hidden; }
+            .center-panel { border-right: 1px solid var(--border); display: flex; flex-direction: column; overflow-y: auto; overflow-x: hidden; }
+            .right-panel { display: flex; flex-direction: column; overflow: hidden; }
+            .header-bar { display: flex; align-items: center; justify-content: space-between; padding: 0 20px; height: 56px; background: var(--bg-card); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; flex-shrink: 0; }
             .header-left { display: flex; align-items: center; gap: 12px; }
             
             @media (max-width: 1024px) {
-              .main-grid { display: flex; flex-direction: column; }
-              .left-panel { border-right: none; border-bottom: 1px solid var(--border); }
-              .center-panel { border-right: none; border-bottom: 1px solid var(--border); }
-              .right-panel { height: 400px; border-bottom: 1px solid var(--border); }
+              .main-grid { display: flex; flex-direction: column; height: auto; }
+              .left-panel { border-right: none; border-bottom: 1px solid var(--border); overflow-y: visible; }
+              .center-panel { border-right: none; border-bottom: 1px solid var(--border); overflow-y: visible; }
+              .right-panel { height: 400px; border-bottom: 1px solid var(--border); overflow-y: visible; }
               .header-bar { height: auto; min-height: 56px; padding: 12px 16px; flex-wrap: wrap; gap: 12px; }
               .header-left { flex-wrap: wrap; gap: 8px; }
             }
@@ -676,45 +677,41 @@ export default function AuctionPage() {
           </div>
 
           {/* RIGHT: Chat */}
-          < div className="right-panel" >
-            {/* RIGHT PANEL: Live Chat */}
-            < div style={{ width: '100%', flex: 1, display: 'flex', flexDirection: 'column' }}>
-              {/* Live Chat Window */}
-              < div style={{ background: 'var(--bg-card)', borderRadius: 0, padding: '20px 20px 0 20px', borderBottom: '1px solid var(--border)', display: 'flex', flexDirection: 'column', flex: 1, minHeight: 0 }}>
-                <div style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: 12, letterSpacing: '0.2em', color: 'var(--text-secondary)', marginBottom: 12 }}>
-                  💬 LIVE CHAT
-                </div>
-                <div style={{ flex: 1, overflowY: 'auto', paddingRight: 8, display: 'flex', flexDirection: 'column', gap: 10, minHeight: 0 }}>
-                  {chat.length === 0 && <div style={{ color: 'var(--text-dim)', fontSize: 12, textAlign: 'center', padding: '20px 0', fontStyle: 'italic' }}>Start the banter! 🏏</div>}
-                  {chat.map(msg => {
-                    const isMe = msg.userId === userId;
-                    const tc = msg.teamId ? (TEAM_COLORS[msg.teamId]?.primary || '#aaa') : '#aaa';
-                    return (
-                      <div key={msg.id} style={{ display: 'flex', flexDirection: 'column', alignSelf: isMe ? 'flex-end' : 'flex-start', maxWidth: '90%' }}>
-                        <div style={{ display: 'flex', alignItems: 'center', gap: 4, marginBottom: 3, flexDirection: isMe ? 'row-reverse' : 'row' }}>
-                          <span style={{ fontSize: 11, fontWeight: 700, color: tc }}>{msg.userName}</span>
-                          {msg.teamId && <TeamBadge teamId={msg.teamId} size="sm" />}
-                          <span style={{ fontSize: 10, color: 'var(--text-dim)' }}>{msg.time}</span>
-                        </div>
-                        <div style={{ background: isMe ? 'rgba(74,158,255,0.15)' : 'var(--bg-secondary)', border: `1px solid ${isMe ? 'rgba(74,158,255,0.3)' : 'var(--border)'}`, borderRadius: 8, padding: '6px 10px', fontSize: 13, lineHeight: 1.4 }}>
-                          {msg.message}
-                        </div>
-                      </div>
-                    );
-                  })}
-                  <div ref={chatEndRef} />
-                </div>
-                <form onSubmit={sendChat} style={{ display: 'flex', gap: 8, padding: '10px 0', borderTop: '1px solid var(--border)', marginTop: 10 }}>
-                  <input
-                    style={{ flex: 1, background: 'var(--bg-secondary)', border: '1px solid var(--border)', borderRadius: 8, padding: '8px 12px', color: 'var(--text-primary)', fontSize: 13, fontFamily: "'Barlow', sans-serif", outline: 'none' }}
-                    placeholder="Type a message..."
-                    value={chatInput}
-                    onChange={e => setChatInput(e.target.value)}
-                    maxLength={200}
-                  />
-                  <button type="submit" style={{ background: 'var(--blue-bright)', border: 'none', borderRadius: 8, color: '#fff', padding: '8px 14px', cursor: 'pointer', fontSize: 14 }}>➤</button>
-                </form>
+          <div className="right-panel" style={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
+            <div style={{ padding: 20, borderLeft: '1px solid var(--border)', display: 'flex', flexDirection: 'column', height: '100%', width: '100%', overflow: 'hidden' }}>
+              <div style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: 12, letterSpacing: '0.2em', color: 'var(--text-secondary)', marginBottom: 16 }}>
+                💬 LIVE CHAT
               </div>
+              <div style={{ flex: 1, overflowY: 'auto', display: 'flex', flexDirection: 'column', gap: 12, paddingRight: 8, minHeight: 0 }}>
+                {chat.length === 0 && <div style={{ color: 'var(--text-dim)', fontSize: 12, textAlign: 'center', padding: '20px 0', fontStyle: 'italic' }}>Start the banter! 🏏</div>}
+                {chat.map(msg => {
+                  const isMe = msg.userId === userId;
+                  const tc = msg.teamId ? (TEAM_COLORS[msg.teamId]?.primary || '#aaa') : '#aaa';
+                  return (
+                    <div key={msg.id} style={{ display: 'flex', flexDirection: 'column', alignSelf: isMe ? 'flex-end' : 'flex-start', maxWidth: '90%' }}>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 4, flexDirection: isMe ? 'row-reverse' : 'row' }}>
+                        <span style={{ fontSize: 11, fontWeight: 700, color: tc }}>{msg.userName}</span>
+                        {msg.teamId && <TeamBadge teamId={msg.teamId} size="sm" />}
+                        <span style={{ fontSize: 10, color: 'var(--text-dim)' }}>{msg.time}</span>
+                      </div>
+                      <div style={{ background: isMe ? 'var(--blue-bright)' : 'var(--bg-secondary)', color: isMe ? '#fff' : 'var(--text-primary)', padding: '8px 12px', borderRadius: 12, borderTopRightRadius: isMe ? 4 : 12, borderTopLeftRadius: isMe ? 12 : 4, fontSize: 14 }}>
+                        {msg.message}
+                      </div>
+                    </div>
+                  );
+                })}
+                <div ref={chatEndRef} />
+              </div>
+              <form onSubmit={sendChat} style={{ display: 'flex', gap: 8, padding: '16px 0 0 0', flexShrink: 0 }}>
+                <input
+                  style={{ flex: 1, background: 'var(--bg-secondary)', border: '1px solid var(--border)', borderRadius: 8, padding: '10px 14px', color: 'var(--text-primary)', outline: 'none' }}
+                  placeholder="Type a message..."
+                  value={chatInput}
+                  onChange={e => setChatInput(e.target.value)}
+                  maxLength={200}
+                />
+                <button type="submit" style={{ background: 'var(--blue-bright)', border: 'none', borderRadius: 8, color: '#fff', padding: '0 16px', cursor: 'pointer', fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700 }}>SEND</button>
+              </form>
             </div>
           </div>
         </div>
@@ -739,7 +736,7 @@ export default function AuctionPage() {
                   const isMe = teamId === myTeamId;
                   const c = TEAM_COLORS[teamId]?.primary || '#aaa';
                   return (
-                    <tr key={teamId} style={{ background: isMe ? `${c}0a` : 'transparent', borderLeft: `3px solid ${isMe ? c : 'transparent'}`, borderBottom: '1px solid rgba(255,255,255,0.04)' }}>
+                    <tr key={teamId} onClick={() => setViewingTeamSquad(teamId)} style={{ background: isMe ? `${c}0a` : 'transparent', borderLeft: `3px solid ${isMe ? c : 'transparent'}`, borderBottom: '1px solid rgba(255,255,255,0.04)', cursor: 'pointer', transition: 'background 0.2s' }} onMouseOver={e => e.currentTarget.style.background = isMe ? `${c}1a` : 'rgba(255,255,255,0.02)'} onMouseOut={e => e.currentTarget.style.background = isMe ? `${c}0a` : 'transparent'}>
                       <td style={{ padding: '10px 16px' }}><TeamBadge teamId={teamId} /></td>
                       <td style={{ padding: '10px 16px', fontWeight: 600 }}>{owner?.name || <span style={{ color: 'var(--text-dim)' }}>—</span>}</td>
                       <td style={{ padding: '10px 16px', color: 'var(--gold)', fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: 16 }}>₹{ts.purse?.toFixed(2)} Cr</td>
@@ -826,6 +823,53 @@ export default function AuctionPage() {
               </div>
             </div>
           )}
+
+        {/* VIEWING OTHER TEAM SQUAD MODAL */}
+        {viewingTeamSquad && (
+          <div style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.85)', zIndex: 9999, display: 'flex', alignItems: 'center', justifyContent: 'center' }} onClick={() => setViewingTeamSquad(null)}>
+            <div style={{ background: 'var(--bg-primary)', border: `1px solid ${TEAM_COLORS[viewingTeamSquad]?.primary || 'var(--border)'}`, borderRadius: 16, width: 600, maxHeight: '80vh', display: 'flex', flexDirection: 'column' }} onClick={e => e.stopPropagation()}>
+              <div style={{ padding: '20px', borderBottom: '1px solid rgba(255,255,255,0.1)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+                  <TeamBadge teamId={viewingTeamSquad} size="lg" />
+                  <span style={{ color: 'var(--text-secondary)', fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: 16 }}>SQUAD</span>
+                </div>
+                <button onClick={() => setViewingTeamSquad(null)} style={{ background: 'transparent', border: 'none', color: '#fff', fontSize: 24, cursor: 'pointer' }}>×</button>
+              </div>
+              <div style={{ padding: '16px 20px', borderBottom: '1px solid rgba(255,255,255,0.05)', display: 'flex', gap: 24, background: 'var(--bg-secondary)' }}>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+                  <span style={{ fontSize: 11, color: 'var(--text-secondary)', fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, letterSpacing: '0.1em' }}>PURSE REMAINING</span>
+                  <span style={{ fontSize: 20, color: 'var(--gold)', fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700 }}>₹{auction.teamStates[viewingTeamSquad]?.purse?.toFixed(2)} Cr</span>
+                </div>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+                  <span style={{ fontSize: 11, color: 'var(--text-secondary)', fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, letterSpacing: '0.1em' }}>SQUAD SIZE</span>
+                  <span style={{ fontSize: 20, fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700 }}>{auction.teamStates[viewingTeamSquad]?.squad?.length || 0}</span>
+                </div>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+                  <span style={{ fontSize: 11, color: 'var(--text-secondary)', fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, letterSpacing: '0.1em' }}>OVERSEAS</span>
+                  <span style={{ fontSize: 20, fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700 }}>{auction.teamStates[viewingTeamSquad]?.overseasCount || 0} ✈️</span>
+                </div>
+              </div>
+              <div style={{ padding: '20px', overflowY: 'auto', display: 'flex', flexDirection: 'column', gap: 10 }}>
+                {auction.teamStates[viewingTeamSquad]?.squad && auction.teamStates[viewingTeamSquad].squad.length > 0 ? auction.teamStates[viewingTeamSquad].squad.map((p: any, i: number) => (
+                  <div key={p.id} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: 'rgba(255,255,255,0.02)', padding: '10px 14px', borderRadius: 8 }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+                      <span style={{ color: 'var(--text-dim)', fontSize: 14, minWidth: 20 }}>{i + 1}.</span>
+                      <div>
+                        <div style={{ fontFamily: "'Bebas Neue', cursive", fontSize: 18, letterSpacing: '0.05em' }}>{p.name} {isOverseas(p) && '✈️'}</div>
+                        <div style={{ fontFamily: "'Barlow Condensed', sans-serif", fontSize: 13, color: 'var(--text-secondary)' }}>{p.role}</div>
+                      </div>
+                    </div>
+                    <div style={{ fontFamily: "'Barlow Condensed', sans-serif", color: 'var(--gold)', fontWeight: 700, fontSize: 16 }}>
+                      ₹{p.soldFor?.toFixed(2)} Cr
+                    </div>
+                  </div>
+                )) : (
+                  <div style={{ color: 'var(--text-dim)', textAlign: 'center', fontStyle: 'italic', padding: '20px 0' }}>No players bought yet.</div>
+                )}
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </>
   );

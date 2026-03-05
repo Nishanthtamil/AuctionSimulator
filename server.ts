@@ -30,6 +30,8 @@ export interface TeamState {
     squad: any[];
     overseas: number;
     overseasCount?: number;
+    selected11?: any[];
+    evaluation?: any;
 }
 
 export interface BidLogEntry {
@@ -166,10 +168,10 @@ function initAuction(room: Room) {
 
     // Shuffle within each pool and flat map
     const shuffledPlayers: Player[] = [];
-    for (const players of playersPoolMap.values()) {
+    playersPoolMap.forEach((players) => {
         const shuffled = [...players].sort(() => Math.random() - 0.5);
         shuffledPlayers.push(...shuffled);
-    }
+    });
 
     const teamStates: Record<string, TeamState> = {};
     IPL_TEAMS.forEach(t => {
@@ -519,6 +521,34 @@ app.prepare().then(() => {
             room.status = 'ended';
             io.to(room.code).emit('auction_ended', { teamStates: room.auction.teamStates, soldPlayers: room.auction.soldPlayers, unsoldPlayers: room.auction.unsoldPlayers });
 
+            if (cb) cb({ success: true });
+        });
+
+        socket.on('submit_eleven', ({ teamId, eleven }, cb) => {
+            const room = rooms.get(socket.data.roomCode);
+            if (!room) return cb && cb({ success: false, error: 'Room not found' });
+            if (room.auction && room.auction.teamStates[teamId]) {
+                room.auction.teamStates[teamId].selected11 = eleven;
+                io.to(room.code).emit('eleven_submitted', { teamId, eleven });
+                if (cb) cb({ success: true });
+            } else {
+                if (cb) cb({ success: false, error: 'Team state not found' });
+            }
+        });
+
+        socket.on('save_evaluations', ({ evaluations }, cb) => {
+            const room = rooms.get(socket.data.roomCode);
+            if (!room) return cb && cb({ success: false, error: 'Room not found' });
+            if (room.hostId !== socket.data.userId) return cb && cb({ success: false, error: 'Only host can save evaluations' });
+
+            if (room.auction) {
+                for (const teamId of Object.keys(evaluations)) {
+                    if (room.auction.teamStates[teamId]) {
+                        room.auction.teamStates[teamId].evaluation = evaluations[teamId];
+                    }
+                }
+                io.to(room.code).emit('evaluations_updated', { teamStates: room.auction.teamStates });
+            }
             if (cb) cb({ success: true });
         });
 

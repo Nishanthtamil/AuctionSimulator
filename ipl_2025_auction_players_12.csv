@@ -54,11 +54,6 @@ Vijay Shankar,AR,Capped AR (CA3),65,1113 Runs / 9 Wkts,121.8 SR / 8.66 Econ,0.75
 Prithvi Shaw,BAT,Capped Bat (CB2),79,1692 Runs,147.5 SR,1.50 Cr,India
 T Natarajan,BOWL,Capped Fast (CFA3),55,67 Wkts,8.81 Econ,2.00 Cr,India
 Rahul Tripathi,BAT,Capped Bat (CB2),95,2236 Runs,139.0 SR,1.25 Cr,India
-Ashutosh Sharma,BAT,Uncapped Bat (UB2),11,189 Runs,167.3 SR,0.30 Cr,India
-Abdul Samad,BAT,Uncapped Bat (UB3),50,577 Runs,146.1 SR,0.30 Cr,India
-Krunal Pandya,AR,Capped AR (CA2),127,1647 Runs / 76 Wkts,132.1 SR / 7.37 Econ,2.00 Cr,India
-Rahul Chahar,BOWL,Capped Spin (CS2),77,75 Wkts,7.74 Econ,1.50 Cr,India
-Washington Sundar,AR,Capped AR (CA2),60,378 Runs / 37 Wkts,117.4 SR / 7.54 Econ,1.50 Cr,India
 Jos Buttler,WK,Marquee (M1),107,3582 Runs,147.1 SR,2.00 Cr,England
 Shreyas Iyer,BAT,Marquee (M1),115,3127 Runs,127.4 SR,2.00 Cr,India
 Rishabh Pant,WK,Marquee (M1),111,3284 Runs,148.9 SR,2.00 Cr,India
@@ -71,6 +66,11 @@ David Miller,BAT,Marquee (M2),130,2924 Runs,139.2 SR,1.50 Cr,South Africa
 KL Rahul,WK,Marquee (M2),132,4683 Runs,134.6 SR,2.00 Cr,India
 Mohammed Shami,BOWL,Marquee (M2),110,127 Wkts,8.44 Econ,2.00 Cr,India
 Mohammed Siraj,BOWL,Marquee (M2),93,93 Wkts,8.65 Econ,2.00 Cr,India
+Ashutosh Sharma,BAT,Uncapped Bat (UB2),11,189 Runs,167.3 SR,0.30 Cr,India
+Abdul Samad,BAT,Uncapped Bat (UB3),50,577 Runs,146.1 SR,0.30 Cr,India
+Krunal Pandya,AR,Capped AR (CA2),127,1647 Runs / 76 Wkts,132.1 SR / 7.37 Econ,2.00 Cr,India
+Rahul Chahar,BOWL,Capped Spin (CS2),77,75 Wkts,7.74 Econ,1.50 Cr,India
+Washington Sundar,AR,Capped AR (CA2),60,378 Runs / 37 Wkts,117.4 SR / 7.54 Econ,1.50 Cr,India
 Harry Brook,BAT,Capped Bat (CB1),11,190 Runs,123.3 SR,2.00 Cr,England
 Devon Conway,WK,Capped Bat (CB1),23,924 Runs,141.2 SR,2.00 Cr,New Zealand
 Venkatesh Iyer,AR,Capped AR (CA1),50,1326 Runs / 5 Wkts,137.1 SR / 10.1 Econ,2.00 Cr,India
