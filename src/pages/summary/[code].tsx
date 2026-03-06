@@ -152,15 +152,21 @@ export default function SummaryPage() {
 
     const evaluateAll = async () => {
         const teamsToEvaluate: Record<string, any[]> = {};
+        const unreadyTeams: string[] = [];
+
         for (const [teamId, ts] of Object.entries(data.teamStates)) {
             const tsAny: any = ts;
             const owner = data.users.find((u: any) => u.teamId === teamId);
             if (owner && tsAny.selected11 && tsAny.selected11.length === 11) {
                 teamsToEvaluate[teamId] = tsAny.selected11;
             } else if (owner) {
-                alert(`Team ${teamId} has not submitted their 11 yet!`);
-                return;
+                unreadyTeams.push(teamId);
             }
+        }
+
+        if (unreadyTeams.length > 0) {
+            const proceed = confirm(`The following teams have not submitted their 11 yet: ${unreadyTeams.join(', ')}.\nDo you want to evaluate the submitted teams anyway?`);
+            if (!proceed) return;
         }
 
         if (Object.keys(teamsToEvaluate).length === 0) {

@@ -297,12 +297,27 @@ export default function AuctionPage() {
             .header-left { display: flex; align-items: center; gap: 12px; }
             
             @media (max-width: 1024px) {
-              .main-grid { display: flex; flex-direction: column; height: auto; }
-              .left-panel { border-right: none; border-bottom: 1px solid var(--border); overflow-y: visible; }
-              .center-panel { border-right: none; border-bottom: 1px solid var(--border); overflow-y: visible; }
-              .right-panel { height: 400px; border-bottom: 1px solid var(--border); overflow-y: visible; }
+              .main-grid { display: grid; grid-template-columns: 1fr 1fr; grid-template-areas: "left center" "right right"; height: auto; }
+              .left-panel { grid-area: left; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); overflow-y: visible; }
+              .center-panel { grid-area: center; border-right: none; border-bottom: 1px solid var(--border); overflow-y: visible; }
+              .right-panel { grid-area: right; height: 500px; border-bottom: 1px solid var(--border); overflow-y: visible; }
               .header-bar { height: auto; min-height: 56px; padding: 12px 16px; flex-wrap: wrap; gap: 12px; }
               .header-left { flex-wrap: wrap; gap: 8px; }
+            }
+            @media (max-width: 768px) {
+              .main-grid { display: flex; flex-direction: column; }
+              .left-panel { border-right: none; }
+              .center-panel { border-right: none; }
+              /* Compact Player Card on Mobile */
+              .mobile-compact-player { flex-direction: row !important; align-items: flex-start !important; padding: 12px !important; gap: 12px !important; }
+              .mobile-compact-avatar { width: 70px !important; height: 70px !important; flex-shrink: 0; }
+              .mobile-compact-title { font-size: 24px !important; margin-bottom: 4px !important; text-align: left !important; }
+              .mobile-compact-details { flex: 1; display: grid !important; grid-template-columns: 1fr 1fr !important; column-gap: 8px !important; row-gap: 4px !important; }
+              .mobile-hide { display: none !important; }
+              /* Compact Bidding on Mobile */
+              .mobile-compact-bidding { padding: 16px 12px !important; gap: 12px !important; }
+              .mobile-compact-bid-box { padding: 12px !important; }
+              .mobile-compact-bid-text { font-size: 40px !important; }
             }
           `
         }} />
@@ -521,40 +536,40 @@ export default function AuctionPage() {
 
           {/* LEFT: Player on Block */}
           <div className="left-panel">
-            <div style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: 12, letterSpacing: '0.2em', color: 'var(--text-secondary)', padding: '12px 16px 8px', borderBottom: '1px solid var(--border)', background: 'rgba(255,255,255,0.02)' }}>
+            <div className="mobile-hide" style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: 12, letterSpacing: '0.2em', color: 'var(--text-secondary)', padding: '12px 16px 8px', borderBottom: '1px solid var(--border)', background: 'rgba(255,255,255,0.02)' }}>
               👤 PLAYER ON THE BLOCK
             </div>
-            <div style={{ padding: '20px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 16 }}>
+            <div className="mobile-compact-player" style={{ padding: '20px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 16 }}>
               {/* Avatar */}
-              <div style={{ width: 120, height: 120, borderRadius: '50%', background: '#1a3060', border: '3px solid var(--border-bright)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', gap: 4, overflow: 'hidden' }}>
+              <div className="mobile-compact-avatar" style={{ width: 120, height: 120, borderRadius: '50%', background: '#1a3060', border: '3px solid var(--border-bright)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', gap: 4, overflow: 'hidden' }}>
                 <img
-                  src={`/ ${cp.name.replace(/\s+/g, '_').toLowerCase()}.png`}
+                  src={`/${cp.name.replace(/\s+/g, '_').toLowerCase()}.png`}
                   onError={(e) => { e.currentTarget.onerror = null; e.currentTarget.src = '/empty_player.png'; }}
                   alt={cp.name}
                   style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                 />
               </div>
               <div style={{ width: '100%' }}>
-                <h2 style={{ fontFamily: "'Bebas Neue', cursive", fontSize: 30, letterSpacing: '0.03em', marginBottom: 12, textAlign: 'center' }}>{cp.name} {isOverseas(cp) && '✈️'}</h2>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-                  {[['Role', `${getRoleIcon(cp.role)} ${cp.role} `], ['Country', `${FLAGS[cp.country] || ''} ${cp.country} `], ['Age', cp.age], ['Base Price', `₹${cp.basePrice.toFixed(2)} Cr`]].map(([k, v]) => (
+                <h2 className="mobile-compact-title" style={{ fontFamily: "'Bebas Neue', cursive", fontSize: 30, letterSpacing: '0.03em', marginBottom: 12, textAlign: 'center' }}>{cp.name} {isOverseas(cp) && '✈️'}</h2>
+                <div className="mobile-compact-details" style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+                  {[['Role', `${getRoleIcon(cp.role)} ${cp.role}`], ['Country', `${FLAGS[cp.country] || ''} ${cp.country}`], ['Age', cp.age], ['Base Price', `₹${cp.basePrice.toFixed(2)} Cr`]].map(([k, v]) => (
                     <div key={k} style={{ display: 'flex', justifyContent: 'space-between', fontSize: 13 }}>
                       <span style={{ color: 'var(--text-secondary)', fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, letterSpacing: '0.05em' }}>{k}</span>
                       <span style={{ fontWeight: 600, color: k === 'Base Price' ? 'var(--gold)' : 'inherit' }}>{v}</span>
                     </div>
                   ))}
-                  <div style={{ height: 1, background: 'var(--border)', margin: '4px 0' }} />
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 8 }}>
-                    {[['MATCHES', cp.matches], ['STATS', cp.primary], ['RATE', cp.rate]].map(([k, v]) => (
-                      <div key={k} style={{ display: 'flex', flexDirection: 'column', gap: 2, background: 'var(--bg-secondary)', borderRadius: 6, padding: '8px' }}>
-                        <span style={{ fontSize: 9, color: 'var(--text-dim)', fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, letterSpacing: '0.1em' }}>{k}</span>
-                        <span style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: 13 }}>{v}</span>
-                      </div>
-                    ))}
-                  </div>
-                  <div style={{ display: 'inline-block', background: 'rgba(74,158,255,0.1)', border: '1px solid rgba(74,158,255,0.3)', borderRadius: 4, padding: '3px 10px', fontSize: 11, color: 'var(--blue-bright)', fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, letterSpacing: '0.1em', alignSelf: 'flex-start' }}>
-                    {cp.pool} SET
-                  </div>
+                </div>
+                <div className="mobile-hide" style={{ height: 1, background: 'var(--border)', margin: '4px 0' }} />
+                <div className="mobile-hide" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 8 }}>
+                  {[['MATCHES', cp.matches], ['STATS', cp.primary], ['RATE', cp.rate]].map(([k, v]) => (
+                    <div key={k} style={{ display: 'flex', flexDirection: 'column', gap: 2, background: 'var(--bg-secondary)', borderRadius: 6, padding: '8px' }}>
+                      <span style={{ fontSize: 9, color: 'var(--text-dim)', fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, letterSpacing: '0.1em' }}>{k}</span>
+                      <span style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: 13 }}>{v}</span>
+                    </div>
+                  ))}
+                </div>
+                <div className="mobile-hide" style={{ display: 'inline-block', background: 'rgba(74,158,255,0.1)', border: '1px solid rgba(74,158,255,0.3)', borderRadius: 4, padding: '3px 10px', fontSize: 11, color: 'var(--blue-bright)', fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, letterSpacing: '0.1em', alignSelf: 'flex-start', marginTop: 8 }}>
+                  {cp.pool} SET
                 </div>
               </div>
             </div>
@@ -599,7 +614,7 @@ export default function AuctionPage() {
           </div>
 
           {/* CENTER: Bidding Arena */}
-          < div className="center-panel" >
+          <div className="center-panel">
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '12px 16px 8px', borderBottom: '1px solid var(--border)', background: 'rgba(255,255,255,0.02)' }}>
               <span style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: 12, letterSpacing: '0.2em', color: 'var(--text-secondary)' }}>
                 ⚡ THE BIDDING ARENA
@@ -612,19 +627,19 @@ export default function AuctionPage() {
                   <button onClick={togglePause} style={{ background: auction.isPaused ? 'var(--blue-bright)' : 'rgba(255,166,0,0.2)', border: '1px solid var(--border-bright)', color: auction.isPaused ? '#fff' : '#ffa600', padding: '4px 10px', borderRadius: 4, fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: 11, cursor: 'pointer' }}>
                     {auction.isPaused ? '▶ RESUME' : '⏸ PAUSE'}
                   </button>
-                  <button onClick={endAuction} style={{ background: 'rgba(255,68,68,0.2)', border: '1px solid #ff4444', color: '#ff4444', padding: '4px 10px', borderRadius: 4, fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: 11, cursor: 'pointer' }}>
-                    ⏹ END AUCTION
+                  <button onClick={endAuction} className="mobile-hide" style={{ background: 'rgba(255,68,68,0.2)', border: '1px solid #ff4444', color: '#ff4444', padding: '4px 10px', borderRadius: 4, fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: 11, cursor: 'pointer' }}>
+                    ⏹ END
                   </button>
                 </div>
               )}
             </div>
-            <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '24px 20px', gap: 20, minHeight: 0 }}>
+            <div className="mobile-compact-bidding" style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '24px 20px', gap: 20, minHeight: 0 }}>
               <TimerCircle seconds={timer} maxSeconds={maxTimer} />
 
               {/* Current bid box */}
-              <div style={{ textAlign: 'center', padding: '20px 32px', borderRadius: 12, border: '1px solid var(--border)', width: '100%', maxWidth: 360, background: flash ? 'rgba(74,158,255,0.12)' : 'transparent', transition: 'background 0.4s' }}>
+              <div className="mobile-compact-bid-box" style={{ textAlign: 'center', padding: '20px 32px', borderRadius: 12, border: '1px solid var(--border)', width: '100%', maxWidth: 360, background: flash ? 'rgba(74,158,255,0.12)' : 'transparent', transition: 'background 0.4s' }}>
                 <div style={{ fontSize: 11, color: 'var(--text-secondary)', fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, letterSpacing: '0.2em' }}>CURRENT BID</div>
-                <div style={{ fontFamily: "'Bebas Neue', cursive", fontSize: 52, color: 'var(--gold)', letterSpacing: '0.03em', lineHeight: 1 }}>₹ {auction.currentBid.toFixed(2)} Cr</div>
+                <div className="mobile-compact-bid-text" style={{ fontFamily: "'Bebas Neue', cursive", fontSize: 52, color: 'var(--gold)', letterSpacing: '0.03em', lineHeight: 1 }}>₹ {auction.currentBid.toFixed(2)} Cr</div>
                 {auction.highestBidder ? (
                   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, fontSize: 12, color: 'var(--text-secondary)', fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, marginTop: 6 }}>
                     HIGHEST BIDDER: <TeamBadge teamId={auction.highestBidder} />
@@ -657,7 +672,7 @@ export default function AuctionPage() {
               )}
 
               {/* Bid Log */}
-              <div style={{ width: '100%', maxWidth: 360, background: 'var(--bg-secondary)', border: '1px solid var(--border)', borderRadius: 10, padding: '12px', flex: 1, minHeight: 120, overflowY: 'auto' }}>
+              <div style={{ width: '100%', maxWidth: 360, background: 'var(--bg-secondary)', border: '1px solid var(--border)', borderRadius: 10, padding: '12px', flex: 1, minHeight: 120, maxHeight: 220, overflowY: 'auto' }}>
                 <div style={{ fontSize: 11, color: 'var(--text-dim)', fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, letterSpacing: '0.2em', marginBottom: 10, paddingBottom: 8, borderBottom: '1px solid var(--border)' }}>BID LOG</div>
                 {bidLog.length === 0 && <div style={{ color: 'var(--text-dim)', fontSize: 12, textAlign: 'center', padding: '16px 0', fontStyle: 'italic' }}>No bids yet</div>}
                 {bidLog.map((b, i) => {
@@ -677,14 +692,14 @@ export default function AuctionPage() {
           </div>
 
           {/* RIGHT: Chat */}
-          <div className="right-panel" style={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
+          <div className="right-panel" style={{ height: '100%', display: 'flex', flexDirection: 'column', maxHeight: '100%' }}>
             <div style={{ padding: 20, borderLeft: '1px solid var(--border)', display: 'flex', flexDirection: 'column', height: '100%', width: '100%', overflow: 'hidden' }}>
               <div style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: 12, letterSpacing: '0.2em', color: 'var(--text-secondary)', marginBottom: 16 }}>
                 💬 LIVE CHAT
               </div>
               <div style={{ flex: 1, overflowY: 'auto', display: 'flex', flexDirection: 'column', gap: 12, paddingRight: 8, minHeight: 0 }}>
                 {chat.length === 0 && <div style={{ color: 'var(--text-dim)', fontSize: 12, textAlign: 'center', padding: '20px 0', fontStyle: 'italic' }}>Start the banter! 🏏</div>}
-                {chat.map(msg => {
+                {chat.slice(-50).map(msg => {
                   const isMe = msg.userId === userId;
                   const tc = msg.teamId ? (TEAM_COLORS[msg.teamId]?.primary || '#aaa') : '#aaa';
                   return (
