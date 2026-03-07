@@ -559,8 +559,8 @@ export default function AuctionPage() {
                     </div>
                   ))}
                 </div>
-                <div className="mobile-hide" style={{ height: 1, background: 'var(--border)', margin: '4px 0' }} />
-                <div className="mobile-hide" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 8 }}>
+                <div style={{ height: 1, background: 'var(--border)', margin: '4px 0' }} />
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 8 }}>
                   {[['MATCHES', cp.matches], ['STATS', cp.primary], ['RATE', cp.rate]].map(([k, v]) => (
                     <div key={k} style={{ display: 'flex', flexDirection: 'column', gap: 2, background: 'var(--bg-secondary)', borderRadius: 6, padding: '8px' }}>
                       <span style={{ fontSize: 9, color: 'var(--text-dim)', fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, letterSpacing: '0.1em' }}>{k}</span>
@@ -568,7 +568,7 @@ export default function AuctionPage() {
                     </div>
                   ))}
                 </div>
-                <div className="mobile-hide" style={{ display: 'inline-block', background: 'rgba(74,158,255,0.1)', border: '1px solid rgba(74,158,255,0.3)', borderRadius: 4, padding: '3px 10px', fontSize: 11, color: 'var(--blue-bright)', fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, letterSpacing: '0.1em', alignSelf: 'flex-start', marginTop: 8 }}>
+                <div style={{ display: 'inline-block', background: 'rgba(74,158,255,0.1)', border: '1px solid rgba(74,158,255,0.3)', borderRadius: 4, padding: '3px 10px', fontSize: 11, color: 'var(--blue-bright)', fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, letterSpacing: '0.1em', alignSelf: 'flex-start', marginTop: 8 }}>
                   {cp.pool} SET
                 </div>
               </div>
@@ -627,7 +627,7 @@ export default function AuctionPage() {
                   <button onClick={togglePause} style={{ background: auction.isPaused ? 'var(--blue-bright)' : 'rgba(255,166,0,0.2)', border: '1px solid var(--border-bright)', color: auction.isPaused ? '#fff' : '#ffa600', padding: '4px 10px', borderRadius: 4, fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: 11, cursor: 'pointer' }}>
                     {auction.isPaused ? '▶ RESUME' : '⏸ PAUSE'}
                   </button>
-                  <button onClick={endAuction} className="mobile-hide" style={{ background: 'rgba(255,68,68,0.2)', border: '1px solid #ff4444', color: '#ff4444', padding: '4px 10px', borderRadius: 4, fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: 11, cursor: 'pointer' }}>
+                  <button onClick={endAuction} style={{ background: 'rgba(255,68,68,0.2)', border: '1px solid #ff4444', color: '#ff4444', padding: '4px 10px', borderRadius: 4, fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: 11, cursor: 'pointer' }}>
                     ⏹ END
                   </button>
                 </div>
