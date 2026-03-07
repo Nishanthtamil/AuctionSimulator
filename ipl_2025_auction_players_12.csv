@@ -53,6 +53,7 @@ Jake Fraser-McGurk,BAT,Capped Bat (CB2),9,330 Runs,234.0 SR,2.00 Cr,Australia
 Vijay Shankar,AR,Capped AR (CA3),65,1113 Runs / 9 Wkts,121.8 SR / 8.66 Econ,0.75 Cr,India
 Prithvi Shaw,BAT,Capped Bat (CB2),79,1692 Runs,147.5 SR,1.50 Cr,India
 T Natarajan,BOWL,Capped Fast (CFA3),55,67 Wkts,8.81 Econ,2.00 Cr,India
+Jofra Archer,BOWL,Capped Fast (CFA12),40,48 Wkts,7.43 Econ,2.00 Cr,England
 Rahul Tripathi,BAT,Capped Bat (CB2),95,2236 Runs,139.0 SR,1.25 Cr,India
 Jos Buttler,WK,Marquee (M1),107,3582 Runs,147.1 SR,2.00 Cr,England
 Shreyas Iyer,BAT,Marquee (M1),115,3127 Runs,127.4 SR,2.00 Cr,India
@@ -66,8 +67,16 @@ David Miller,BAT,Marquee (M2),130,2924 Runs,139.2 SR,1.50 Cr,South Africa
 KL Rahul,WK,Marquee (M2),132,4683 Runs,134.6 SR,2.00 Cr,India
 Mohammed Shami,BOWL,Marquee (M2),110,127 Wkts,8.44 Econ,2.00 Cr,India
 Mohammed Siraj,BOWL,Marquee (M2),93,93 Wkts,8.65 Econ,2.00 Cr,India
+Gus Atkinson,AR,Capped AR (CA4),0,0 Runs / 0 Wkts,-,2.00 Cr,England
+Tom Curran,AR,Capped AR (CA4),13,127 Runs / 10 Wkts,120.9 SR / 9.50 Econ,2.00 Cr,England
+K. Gowtham,AR,Capped AR (CA4),35,247 Runs / 21 Wkts,166.9 SR / 8.26 Econ,1.00 Cr,India
+Mohammad Nabi,AR,Capped AR (CA4),24,215 Runs / 15 Wkts,143.3 SR / 7.23 Econ,1.50 Cr,Afghanistan
+Gulbadin Naib,AR,Capped AR (CA4),3,26 Runs / 1 Wkt,118.2 SR / 11.5 Econ,1.00 Cr,Afghanistan
+Sikandar Raza,AR,Capped AR (CA4),9,182 Runs / 3 Wkts,141.1 SR / 9.07 Econ,1.25 Cr,Zimbabwe
+Mitchell Santner,AR,Capped AR (CA4),18,67 Runs / 15 Wkts,109.8 SR / 7.22 Econ,2.00 Cr,New Zealand
 Ashutosh Sharma,BAT,Uncapped Bat (UB2),11,189 Runs,167.3 SR,0.30 Cr,India
 Abdul Samad,BAT,Uncapped Bat (UB3),50,577 Runs,146.1 SR,0.30 Cr,India
+Vaibhav Suryavanshi,BAT,Uncapped Bat (UB10),7,252 Runs,206.6 SR,1.10 Cr,India
 Krunal Pandya,AR,Capped AR (CA2),127,1647 Runs / 76 Wkts,132.1 SR / 7.37 Econ,2.00 Cr,India
 Rahul Chahar,BOWL,Capped Spin (CS2),77,75 Wkts,7.74 Econ,1.50 Cr,India
 Washington Sundar,AR,Capped AR (CA2),60,378 Runs / 37 Wkts,117.4 SR / 7.54 Econ,1.50 Cr,India
@@ -144,13 +153,6 @@ Evin Lewis,BAT,Capped Bat (CB4),27,654 Runs,157.6 SR,2.00 Cr,West Indies
 Pathum Nissanka,BAT,Capped Bat (CB4),0,0 Runs,-,0.75 Cr,Sri Lanka
 B. Rajapaksa,BAT,Capped Bat (CB4),12,214 Runs,149.7 SR,0.75 Cr,Sri Lanka
 Steven Smith,BAT,Capped Bat (CB4),103,2485 Runs,128.1 SR,2.00 Cr,Australia
-Gus Atkinson,AR,Capped AR (CA4),0,0 Runs / 0 Wkts,-,2.00 Cr,England
-Tom Curran,AR,Capped AR (CA4),13,127 Runs / 10 Wkts,120.9 SR / 9.50 Econ,2.00 Cr,England
-K. Gowtham,AR,Capped AR (CA4),35,247 Runs / 21 Wkts,166.9 SR / 8.26 Econ,1.00 Cr,India
-Mohammad Nabi,AR,Capped AR (CA4),24,215 Runs / 15 Wkts,143.3 SR / 7.23 Econ,1.50 Cr,Afghanistan
-Gulbadin Naib,AR,Capped AR (CA4),3,26 Runs / 1 Wkt,118.2 SR / 11.5 Econ,1.00 Cr,Afghanistan
-Sikandar Raza,AR,Capped AR (CA4),9,182 Runs / 3 Wkts,141.1 SR / 9.07 Econ,1.25 Cr,Zimbabwe
-Mitchell Santner,AR,Capped AR (CA4),18,67 Runs / 15 Wkts,109.8 SR / 7.22 Econ,2.00 Cr,New Zealand
 Jayant Yadav,AR,Capped AR (CA4),20,40 Runs / 8 Wkts,108.1 SR / 6.87 Econ,0.75 Cr,India
 Alzarri Joseph,BOWL,Capped Fast (CFA5),19,20 Wkts,9.38 Econ,2.00 Cr,West Indies
 Kwena Maphaka,BOWL,Capped Fast (CFA6),2,1 Wkt,14.0 Econ,0.75 Cr,South Africa
@@ -183,9 +185,7 @@ Tim Southee,BOWL,Capped Fast (CFA10),54,47 Wkts,8.67 Econ,1.50 Cr,New Zealand
 John Turner,BOWL,Capped Fast (CFA10),0,0 Wkts,-,1.50 Cr,England
 Kyle Jamieson,BOWL,Capped Fast (CFA11),9,9 Wkts,9.61 Econ,1.50 Cr,New Zealand
 Chris Jordan,BOWL,Capped Fast (CFA11),34,31 Wkts,9.55 Econ,2.00 Cr,England
-Vaibhav Suryavanshi,BAT,Uncapped Bat (UB10),7,252 Runs,206.6 SR,1.10 Cr,India
 Andrew Tye,BOWL,Capped Fast (CFA12),30,42 Wkts,8.59 Econ,0.75 Cr,Australia
-Jofra Archer,BOWL,Capped Fast (CFA12),40,48 Wkts,7.43 Econ,2.00 Cr,England
 S. Netravalkar,BOWL,Uncapped Fast (UFA10),0,0 Wkts,-,0.30 Cr,USA
 Hardik Tamore,WK,Uncapped WK (UK6),0,0 Runs,-,0.30 Cr,India
 Daryl Mitchell,AR,Capped AR (CA10),15,351 Runs / 1 Wkt,141.5 SR / 11.2 Econ,2.00 Cr,New Zealand
